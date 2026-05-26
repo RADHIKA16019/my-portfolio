@@ -11,6 +11,7 @@ import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Certificates from "./components/sections/Certificates";
 import Education from "./components/sections/Education";
+import Contact from "./components/sections/Contact";
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
@@ -37,14 +38,9 @@ function App() {
           <About />
           <Skills />
           <Projects />
-
           <Certificates />    
-
           <Education />
-
-          <section id="contact" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Contact — Coming Soon</h1>
-          </section>
+          <Contact />
         </main>
       </div>
     </>

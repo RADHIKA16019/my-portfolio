@@ -9,12 +9,23 @@ export const personalInfo = {
   resumeLink: "/resume.pdf",
 };
 
+export const contactInfo = {
+  email: "radhika16019@gmaile.com",
+  github: "https://github.com/RADHIKA16019",
+  linkedin: "https://linkedin.com/in/radhika-a6a84837a",
+  twitter: "https://x.com/radhika16019",
+  instagram: "https://instagram.com/r4dh1k4_28",
+  youtube: "https://youtube.com/@Radhika_Codes",
+  resume: "/resume.pdf",
+};
+
 export const socialLinks = {
   github: "https://github.com/RADHIKA16019",
   linkedin: "https://linkedin.com/in/radhika-a6a84837a",
   twitter: "https://x.com/radhika16019",
   instagram: "https://instagram.com/r4dh1k4_28",
   youtube: "https://youtube.com/@Radhika_Codes",
+  email: "mailto:'radhika16019@gmail.com'",
 };
 
 export const typingStrings = [
