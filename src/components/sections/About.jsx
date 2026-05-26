@@ -65,7 +65,7 @@ function About() {
             <span style={{ color: "#00b4d8", fontWeight: "500" }}>
               J.C.Bose University of Science and Technology, YMCA
             </span>
-            . I love building things for the web and sharing what I learn.
+            . I love building things and sharing what I learn.
           </p>
 
           <p style={{
@@ -78,7 +78,7 @@ function About() {
             Currently focused on{" "}
             <span style={{ color: "#00b4d8", fontWeight: "500" }}>web development</span>
             {" "}and exploring{" "}
-            <span style={{ color: "#00b4d8", fontWeight: "500" }}>Node.js</span>
+            <span style={{ color: "#00b4d8", fontWeight: "500" }}>new technology</span>
             . Still early in my journey — but moving fast and genuinely loving every part of it.
           </p>
 

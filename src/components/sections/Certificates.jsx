@@ -206,7 +206,24 @@ export default function Certificates() {
     <section id="certificates" style={sectionStyle}>
 
       {/* Label */}
-      <p style={labelStyle}>05 — Licenses & Certifications</p>
+      <p style={{
+        fontFamily: "DM Sans, sans-serif",
+        fontSize: "12px",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#00b4d8",
+        marginBottom: "12px",
+      }}>
+        04 — Licenses & Certifications
+      </p>
+
+      <div style={{
+        width: "40px",
+        height: "3px",
+        background: "#00b4d8",
+        borderRadius: "2px",
+        marginBottom: "20px",
+      }} />
 
       {/* Heading */}
       <h2 style={headingStyle}>What I've earned</h2>

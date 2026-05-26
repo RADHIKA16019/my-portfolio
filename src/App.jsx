@@ -10,6 +10,7 @@ import About from "./components/sections/About";
 import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Certificates from "./components/sections/Certificates";
+import Education from "./components/sections/Education";
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
@@ -39,9 +40,7 @@ function App() {
 
           <Certificates />    
 
-          <section id="education" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Education — Coming Soon</h1>
-          </section>
+          <Education />
 
           <section id="contact" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Contact — Coming Soon</h1>

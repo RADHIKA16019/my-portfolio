@@ -1,4 +1,3 @@
-// ── PORTFOLIO DATA ──
 
 export const personalInfo = {
   name: "Radhika",
@@ -26,7 +25,7 @@ export const typingStrings = [
 ];
 
 export const aboutInfo = {
-  bio: "Hey! I'm a first-year CS student who loves building things for the web. I'm currently learning web development, exploring new technologies, and sharing what I learn along the way. Still early in my journey — but moving fast. 🚀",
+  bio: "Hey! I'm a first-year CS student who loves building things. I'm currently learning web development, exploring new technologies, and sharing what I learn along the way. Still early in my journey — but moving fast. 🚀",
   currently: [
     { icon: "📚", label: "Learning", value: "Web Dev + DSA" },
     { icon: "🎯", label: "Goal", value: "Land my first internship" },
@@ -60,33 +59,7 @@ export const certificates = [
     skills: ["JavaScript", "Algorithms", "Data Structures"],
     category: "Programming",
   },
-  {
-    id: 3,
-    title: "React Developer",
-    issuer: "Scrimba",
-    issuerLogo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/scrimba.svg",
-    issueDate: "Mar 2025",
-    expiryDate: null,
-    credentialId: "your-credential-id",
-    credentialUrl: "https://scrimba.com/certificate/...",
-    skills: ["React", "JSX", "Hooks"],
-    category: "Web Development",
-  },
-  {
-    id: 4,
-    title: "Campus Ambassador",
-    issuer: "ChaiCode",
-    issuerLogo: "",
-    issueDate: "Aug 2024",
-    expiryDate: "Aug 2025",
-    credentialId: "",
-    credentialUrl: "",
-    skills: ["Community Building", "Communication", "Tech Evangelism"],
-    category: "Community",
-  },
 ];
-
-
 
 export const education = [
   {
@@ -94,7 +67,7 @@ export const education = [
     degree: "Bachelor of Technology — Computer Science",
     institution: "J.C. Bose University of Science and Technology, YMCA",
     location: "Faridabad, India",
-    duration: "2024 — 2028",
+    duration: "2025 — 2029",
     status: "Pursuing",
     grade: null,
     description: "Studying core CS fundamentals — DSA, OOP, DBMS, OS, Computer Networks.",
@@ -103,24 +76,24 @@ export const education = [
   },
   {
     id: 2,
-    degree: "Senior Secondary — Science (PCM + CS)",
-    institution: "Your School Name",
-    location: "Faridabad, India",
-    duration: "2022 — 2024",
+    degree: "Senior Secondary — Science (PCM + Physical Education)",
+    institution: "Shamrock Public School, Kaithal",
+    location: "Kaithal, India",
+    duration: "2023 — 2025",
     status: "Completed",
-    grade: "XX%",
-    description: "Physics, Chemistry, Maths with Computer Science as additional subject.",
-    highlights: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
+    grade: "91%",
+    description: "Physics, Chemistry, Maths and preparing for JEE",
+    highlights: ["Physics", "Chemistry", "Mathematics"],
     logo: "",
   },
   {
     id: 3,
     degree: "Secondary — Class X",
-    institution: "Your School Name",
-    location: "Faridabad, India",
-    duration: "Completed 2022",
+    institution: "B.R.D.M Public School, Kaithal",
+    location: "Kaithal, India",
+    duration: "Completed 2023",
     status: "Completed",
-    grade: "XX%",
+    grade: "98%",
     description: "",
     highlights: [],
     logo: "",
@@ -150,11 +123,6 @@ export const funFacts = [
     title: "Social Media? Barely.",
     desc: "While everyone chases trends, I am too busy actually building things.",
   },
-  // {
-  //   emoji: "🗣️",
-  //   title: "Hinglish Speaker",
-  //   desc: "Friends expect Haryanvi, they get fluent Hindi-English mix instead.",
-  // },
 ];
 
 export const skills = [
@@ -197,7 +165,6 @@ export const skills = [
   {
     category: "Learning Next",
     items: [
-      { name: "Next.js", icon: "devicon-nextjs-plain", level: "learning" },
       { name: "DSA in C++", icon: "devicon-cplusplus-plain colored", level: "learning" },
     ],
   },
@@ -207,16 +174,6 @@ export const skills = [
 export const projects = [
   {
     id: 1,
-    title: "Mintlify Clone",
-    description: "Pixel-perfect clone of the Mintlify landing page.",
-    category: "HTML",
-    tech: ["HTML", "CSS"],
-    github: "https://github.com/radhika/minlify-clone",
-    live: "",
-    featured: false,
-  },
-  {
-    id: 2,
     title: "Cursor Clone",
     description: "Static clone of the Cursor.sh landing page.",
     category: "HTML",
@@ -226,9 +183,9 @@ export const projects = [
     featured: false,
   },
   {
-    id: 3,
-    title: "BMI Calculator",
-    description: "Clean BMI calculator with result category display.",
+    id: 2,
+    title: "Projects",
+    description: "Javascript and DOM projects",
     category: "JavaScript",
     tech: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/radhika/bmi-calculator",
@@ -236,27 +193,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 4,
-    title: "Digital Watch",
-    description: "Live digital clock with date display and styling.",
-    category: "JavaScript",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/radhika/digital-watch",
-    live: "",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Color Switch Game",
-    description: "Tap-based color matching game built in vanilla JS.",
-    category: "JavaScript",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/radhika/color-switch",
-    live: "",
-    featured: false,
-  },
-  {
-    id: 6,
+    id: 3,
     title: "Portfolio",
     description: "Personal portfolio site built with React + Vite + Tailwind.",
     category: "React",
@@ -266,7 +203,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 7,
+    id: 4,
     title: "CafeMate",
     description: "AI-powered cafe management fullstack app with smart ordering.",
     category: "Fullstack",
@@ -276,7 +213,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 8,
+    id: 5,
     title: "Eventify",
     description: "Fullstack event management platform with auth and dashboards.",
     category: "Fullstack",
@@ -286,17 +223,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 9,
-    title: "DB Schema Diagrams",
-    description: "Collection of database schema diagrams for various use cases.",
-    category: "Other",
-    tech: ["dbdiagram.io", "SQL"],
-    github: "https://github.com/radhika/db-schemas",
-    live: "",
-    featured: false,
-  },
-  {
-    id: 10,
+    id: 6,
     title: "Polling App",
     description: "Fullstack polling app with real-time votes — fixes in progress.",
     category: "Fullstack",
@@ -304,5 +231,15 @@ export const projects = [
     github: "https://github.com/radhika/polling-app",
     live: "",
     featured: false,
+  },
+  {
+  id: 7,
+  title: "DB Schema Diagrams",
+  description: "Collection of database schema diagrams for various use cases.",
+  category: "Other",
+  tech: ["dbdiagram.io", "SQL"],
+  github: "https://github.com/radhika/db-schemas",
+  live: "",
+  featured: false,
   },
 ];

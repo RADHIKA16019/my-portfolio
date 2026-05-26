@@ -214,7 +214,25 @@ export default function Projects() {
     <section id="projects" style={sectionStyle}>
 
       {/* Label */}
-      <p style={labelStyle}>03 — Projects</p>
+      {/* <p style={labelStyle}>03 — Projects</p> */}
+      <p style={{
+        fontFamily: "DM Sans, sans-serif",
+        fontSize: "12px",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#00b4d8",
+        marginBottom: "12px",
+      }}>
+        03 — Projects
+      </p>
+
+      <div style={{
+        width: "40px",
+        height: "3px",
+        background: "#00b4d8",
+        borderRadius: "2px",
+        marginBottom: "20px",
+      }} />
 
       {/* Heading + GitHub link */}
       <div style={headingRowStyle}>
