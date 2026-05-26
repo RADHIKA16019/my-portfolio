@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useTheme } from "./hooks/useTheme";
-
 import Preloader from "./components/Preloader";
 import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
 import BatteryBanner from "./components/BatteryBanner";
 import Sidebar from "./components/Sidebar";
 import Hero from "./components/sections/Hero";
-
 import About from "./components/sections/About";
+import Skills from "./components/sections/Skills";
+
 function App() {
   const { isDark, toggleTheme } = useTheme();
   const [loading, setLoading] = useState(true);
@@ -18,42 +18,37 @@ function App() {
       <Cursor />
       <ScrollProgress />
       <BatteryBanner />
-
       {loading && <Preloader onComplete={() => setLoading(false)} />}
-
       <div
-        className={`min-h-screen bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 transition-opacity duration-700 ${loading ? "opacity-0" : "opacity-100"}`}
+        style={{
+          minHeight: "100vh",
+          background: isDark ? "#09090b" : "#ffffff",
+          color: isDark ? "#e4e4e7" : "#18181b",
+          transition: "background 0.3s ease, color 0.3s ease",
+          opacity: loading ? 0 : 1,
+        }}
       >
         <Sidebar isDark={isDark} toggleTheme={toggleTheme} />
-
-        <main className="md:pl-16">
-
-          {/* Hero — real component */}
+        <main style={{ paddingLeft: "60px" }}>
           <Hero />
-
-          {/* Placeholder sections — will be replaced one by one */}
           <About />
+          <Skills />
 
-          <section id="skills" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">Skills Section</h1>
+          <section id="projects" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Projects — Coming Soon</h1>
           </section>
 
-          <section id="projects" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">Projects Section</h1>
+          <section id="certificates" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Certificates — Coming Soon</h1>
           </section>
 
-          <section id="certificates" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">Certificates Section</h1>
+          <section id="education" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Education — Coming Soon</h1>
           </section>
 
-          <section id="education" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">Education Section</h1>
+          <section id="contact" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <h1 style={{ fontFamily: "Syne, sans-serif", fontSize: "3rem", color: "#00b4d8" }}>Contact — Coming Soon</h1>
           </section>
-
-          <section id="contact" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">Contact Section</h1>
-          </section>
-
         </main>
       </div>
     </>

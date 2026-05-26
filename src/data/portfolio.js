@@ -1,10 +1,9 @@
 // ── PORTFOLIO DATA ──
-// Replace all [PLACEHOLDERS] with your actual info
 
 export const personalInfo = {
   name: "Radhika",
   role: "CS Student",
-  college: "J.C.Bose University of Science & Technology, YMCA Faridabad",
+  college: "J.C.Bose University of Science & Technology, (YMCA) Faridabad",
   batch: "2025-2029",
   location: "Faridabad, India",
   email: "radhika16019@gmail.com",
@@ -27,43 +26,15 @@ export const typingStrings = [
 ];
 
 export const aboutInfo = {
-  bio: "Hey! I'm a first-year CS student who loves building things for the web. I'm currently learning modern web development, exploring new technologies, and sharing what I learn along the way. Still early in my journey — but moving fast. 🚀",
+  bio: "Hey! I'm a first-year CS student who loves building things for the web. I'm currently learning web development, exploring new technologies, and sharing what I learn along the way. Still early in my journey — but moving fast. 🚀",
   currently: [
-    { icon: "📚", label: "Learning", value: "Web Dev + Node.js" },
+    { icon: "📚", label: "Learning", value: "Web Dev + DSA" },
     { icon: "🎯", label: "Goal", value: "Land my first internship" },
     { icon: "🏅", label: "Role", value: "ChaiCode Campus Ambassador" },
     { icon: "🎬", label: "YouTube", value: "Node.js content" },
   ],
 };
 
-export const skills = [
-  {
-    category: "Languages",
-    items: [
-      { name: "HTML5", icon: "devicon-html5-plain colored", level: "know" },
-      { name: "CSS3", icon: "devicon-css3-plain colored", level: "know" },
-      { name: "JavaScript", icon: "devicon-javascript-plain colored", level: "know" },
-      { name: "C", icon: "devicon-c-plain colored", level: "know" },
-    ],
-  },
-  {
-    category: "Tools",
-    items: [
-      { name: "Git", icon: "devicon-git-plain colored", level: "know" },
-      { name: "GitHub", icon: "devicon-github-original", level: "know" },
-      { name: "VS Code", icon: "devicon-vscode-plain colored", level: "know" },
-    ],
-  },
-  {
-    category: "Learning Next",
-    items: [
-      { name: "Node.js", icon: "devicon-nodejs-plain colored", level: "learning" },
-      { name: "MongoDB", icon: "devicon-mongodb-plain colored", level: "learning" },
-      { name: "React", icon: "devicon-react-original colored", level: "learning" },
-      { name: "DSA", icon: "devicon-cplusplus-plain colored", level: "learning" },
-    ],
-  },
-];
 
 export const projects = [
   {
@@ -132,33 +103,33 @@ export const education = [
   {
     id: 1,
     degree: "B.Tech — Computer Science & Engineering",
-    institution: "[COLLEGE_NAME]",
-    year: "2024 — 2028",
+    institution: "J.C.Bose University of Science & Technology, (YMCA) Faridabad",
+    year: "2025 — 2029",
     grade: "Current",
-    type: "college",
+    type: "University",
   },
   {
     id: 2,
     degree: "Class 12th",
-    institution: "[SCHOOL_NAME]",
-    year: "[YEAR]",
-    grade: "[PERCENTAGE/GRADE]",
-    type: "school",
+    institution: "Shamrock Public School, Kaithal",
+    year: "2025",
+    grade: "91%",
+    type: "School",
   },
   {
     id: 3,
     degree: "Class 10th",
     institution: "[SCHOOL_NAME]",
-    year: "[YEAR]",
-    grade: "[PERCENTAGE/GRADE]",
-    type: "school",
+    year: "2023",
+    grade: "98%",
+    type: "School",
   },
 ];
 
 export const stats = [
   { label: "GitHub Repos", value: 15, suffix: "+" },
   { label: "Certificates", value: 5, suffix: "+" },
-  { label: "YouTube Videos", value: 1, suffix: "" },
+  { label: "YouTube Videos", value: 1, suffix: "+" },
   { label: "Campus Events", value: 1, suffix: "+" },
 ];
 
@@ -178,9 +149,55 @@ export const funFacts = [
     title: "Social Media? Barely.",
     desc: "While everyone chases trends, I am too busy actually building things.",
   },
+  // {
+  //   emoji: "🗣️",
+  //   title: "Hinglish Speaker",
+  //   desc: "Friends expect Haryanvi, they get fluent Hindi-English mix instead.",
+  // },
+];
+
+export const skills = [
   {
-    emoji: "🗣️",
-    title: "Hinglish Speaker",
-    desc: "Friends expect Haryanvi, they get fluent Hindi-English mix instead.",
+    category: "Languages",
+    items: [
+      { name: "C", icon: "devicon-c-plain colored", level: "know" },
+      { name: "C++", icon: "devicon-cplusplus-plain colored", level: "know" },
+      { name: "JavaScript", icon: "devicon-javascript-plain colored", level: "know" },
+      { name: "TypeScript", icon: "devicon-typescript-plain colored", level: "know" },
+    ],
+  },
+  {
+    category: "Frontend",
+    items: [
+      { name: "HTML5", icon: "devicon-html5-plain colored", level: "know" },
+      { name: "CSS3", icon: "devicon-css3-plain colored", level: "know" },
+      { name: "React", icon: "devicon-react-original colored", level: "know" },
+      { name: "Next.js", icon: "devicon-nextjs-plain", level: "learning" },
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      { name: "Node.js", icon: "devicon-nodejs-plain colored", level: "know" },
+      { name: "Express", icon: "devicon-express-original", level: "know" },
+      { name: "MongoDB", icon: "devicon-mongodb-plain colored", level: "know" },
+      { name: "Prisma", icon: "devicon-prisma-plain", level: "know" },
+      { name: "Drizzle", icon: "devicon-postgresql-plain colored", level: "know" },
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      { name: "Git", icon: "devicon-git-plain colored", level: "know" },
+      { name: "GitHub", icon: "devicon-github-original", level: "know" },
+      { name: "VS Code", icon: "devicon-vscode-plain colored", level: "know" },
+    ],
+  },
+  {
+    category: "Learning Next",
+    items: [
+      { name: "Next.js", icon: "devicon-nextjs-plain", level: "learning" },
+      { name: "DSA in C++", icon: "devicon-cplusplus-plain colored", level: "learning" },
+    ],
   },
 ];
