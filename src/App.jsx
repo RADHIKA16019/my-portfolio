@@ -6,6 +6,7 @@ import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
 import BatteryBanner from "./components/BatteryBanner";
 import Sidebar from "./components/Sidebar";
+import Hero from "./components/sections/Hero";
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
@@ -22,17 +23,14 @@ function App() {
       <div
         className={`min-h-screen bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100 transition-opacity duration-700 ${loading ? "opacity-0" : "opacity-100"}`}
       >
-        {/* Sidebar */}
         <Sidebar isDark={isDark} toggleTheme={toggleTheme} />
 
-        {/* Main content — left padding for sidebar on desktop */}
         <main className="md:pl-16">
 
-          {/* Test sections to check sidebar navigation */}
-          <section id="hero" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">Hero Section</h1>
-          </section>
+          {/* Hero — real component */}
+          <Hero />
 
+          {/* Placeholder sections — will be replaced one by one */}
           <section id="about" className="min-h-screen flex items-center justify-center">
             <h1 className="font-syne text-5xl font-bold text-accent">About Section</h1>
           </section>

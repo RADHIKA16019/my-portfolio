@@ -2,21 +2,21 @@
 // Replace all [PLACEHOLDERS] with your actual info
 
 export const personalInfo = {
-  name: "[YOUR_NAME]",               // e.g. "Radhika Sharma"
+  name: "Radhika",
   role: "CS Student",
-  college: "[COLLEGE_NAME]",
-  batch: "2024-2028",
-  location: "[YOUR_CITY], India",
-  email: "[YOUR_EMAIL]",             // e.g. "radhika@gmail.com"
-  resumeLink: "/resume.pdf",         // put your resume in public/ folder
+  college: "J.C.Bose University of Science & Technology, YMCA Faridabad",
+  batch: "2025-2029",
+  location: "Faridabad, India",
+  email: "radhika16019@gmail.com",
+  resumeLink: "/resume.pdf",
 };
 
 export const socialLinks = {
-  github: "https://github.com/[username]",
-  linkedin: "https://linkedin.com/in/[username]",
-  twitter: "https://x.com/[username]",
-  instagram: "https://instagram.com/[username]",
-  youtube: "https://youtube.com/@[username]",
+  github: "https://github.com/RADHIKA16019",
+  linkedin: "https://linkedin.com/in/radhika-a6a84837a",
+  twitter: "https://x.com/radhika16019",
+  instagram: "https://instagram.com/r4dh1k4_28",
+  youtube: "https://youtube.com/@Radhika_Codes",
 };
 
 export const typingStrings = [
@@ -27,7 +27,7 @@ export const typingStrings = [
 ];
 
 export const aboutInfo = {
-  bio: "Hey! I'm a first-year CS student who loves building things for the web. I'm currently learning modern web development, exploring Node.js, and sharing what I learn along the way. Still early in my journey — but moving fast. 🚀",
+  bio: "Hey! I'm a first-year CS student who loves building things for the web. I'm currently learning modern web development, exploring new technologies, and sharing what I learn along the way. Still early in my journey — but moving fast. 🚀",
   currently: [
     { icon: "📚", label: "Learning", value: "Web Dev + Node.js" },
     { icon: "🎯", label: "Goal", value: "Land my first internship" },
