@@ -23,6 +23,16 @@ function App() {
       <ScrollProgress />
       <BatteryBanner />
       {loading && <Preloader onComplete={() => setLoading(false)} />}
+
+      <div className="fixed top-5 left-24 z-50 hidden md:block">
+  <button
+    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+    className="text-white/90 text-lg font-semibold tracking-wide hover:text-cyan-400 transition-all duration-300"
+  >
+    <span className="text-cyan-400">Radhika</span> | Portfolio
+  </button>
+</div> 
+  
       <div
         style={{
           minHeight: "100vh",

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { projects } from "../../data/portfolio";
 
-// ── Tech tag colors (matches screenshot vibe) ──────────────────────────────
 const techColors = {
   "HTML":         { color: "#E34F26", bg: "rgba(227,79,38,0.10)",   border: "rgba(227,79,38,0.25)" },
   "CSS":          { color: "#1572B6", bg: "rgba(21,114,182,0.10)",  border: "rgba(21,114,182,0.25)" },
@@ -13,16 +12,28 @@ const techColors = {
   "MongoDB":      { color: "#47A248", bg: "rgba(71,162,72,0.10)",   border: "rgba(71,162,72,0.25)" },
   "AI":           { color: "#A78BFA", bg: "rgba(167,139,250,0.10)", border: "rgba(167,139,250,0.25)" },
   "SQL":          { color: "#F59E0B", bg: "rgba(245,158,11,0.10)",  border: "rgba(245,158,11,0.25)" },
-  "dbdiagram.io": { color: "#a1a1aa", bg: "rgba(161,161,170,0.10)", border: "rgba(161,161,170,0.20)" },
+  "Express":      { color: "#a1a1aa", bg: "rgba(161,161,170,0.08)", border: "rgba(161,161,170,0.18)" },
+  "dbdiagram.io": { color: "#a1a1aa", bg: "rgba(161,161,170,0.08)", border: "rgba(161,161,170,0.18)" },
 };
 
 const defaultTechColor = {
   color: "#a1a1aa",
-  bg: "rgba(161,161,170,0.10)",
-  border: "rgba(161,161,170,0.20)",
+  bg: "rgba(161,161,170,0.08)",
+  border: "rgba(161,161,170,0.18)",
+};
+
+const categoryColors = {
+  HTML:       "#E34F26",
+  JavaScript: "#F7DF1E",
+  React:      "#61DAFB",
+  Fullstack:  "#A78BFA",
+  Other:      "#a1a1aa",
 };
 
 const FILTERS = ["All", "HTML", "JavaScript", "React", "Fullstack", "Other"];
+
+// Alternating backgrounds
+const cardBgs = ["#111113", "rgba(0,180,216,0.04)"];
 
 export default function Projects() {
   const [active, setActive] = useState("All");
@@ -31,21 +42,19 @@ export default function Projects() {
   const filtered =
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
-  // ── Styles ─────────────────────────────────────────────────────────────────
-
   const sectionStyle = {
-    padding: "80px 32px",
-    maxWidth: "900px",
+    padding: "96px 40px",
+    maxWidth: "960px",
     margin: "0 auto",
   };
 
   const labelStyle = {
     fontFamily: "Syne, sans-serif",
-    fontSize: "13px",
+    fontSize: "12px",
     letterSpacing: "3px",
     textTransform: "uppercase",
     color: "#00b4d8",
-    marginBottom: "12px",
+    marginBottom: "10px",
   };
 
   const headingRowStyle = {
@@ -59,7 +68,7 @@ export default function Projects() {
 
   const headingStyle = {
     fontFamily: "Syne, sans-serif",
-    fontSize: "clamp(28px, 4vw, 40px)",
+    fontSize: "clamp(28px, 4vw, 42px)",
     fontWeight: "700",
     color: "#f4f4f5",
     margin: "0",
@@ -71,7 +80,7 @@ export default function Projects() {
     gap: "6px",
     fontFamily: "DM Sans, sans-serif",
     fontSize: "13px",
-    color: "#a1a1aa",
+    color: "#52525b",
     textDecoration: "none",
     transition: "color 0.2s",
   };
@@ -80,23 +89,15 @@ export default function Projects() {
     display: "flex",
     flexWrap: "wrap",
     gap: "8px",
-    marginBottom: "36px",
+    marginBottom: "32px",
   };
-
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-    gap: "16px",
-  };
-
-  // ── Card ───────────────────────────────────────────────────────────────────
 
   function filterBtnStyle(label) {
     const isActive = active === label;
     return {
       fontFamily: "DM Sans, sans-serif",
       fontSize: "13px",
-      padding: "6px 16px",
+      padding: "6px 18px",
       borderRadius: "99px",
       border: isActive ? "1px solid #00b4d8" : "1px solid #27272a",
       background: isActive ? "rgba(0,180,216,0.10)" : "transparent",
@@ -106,135 +107,117 @@ export default function Projects() {
     };
   }
 
-  function cardStyle(id, featured) {
+  // Single column list of cards
+  const listStyle = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "0px",
+  };
+
+  function cardStyle(id, index) {
     const isHovered = hoveredId === id;
+    const bg = cardBgs[index % 2];
     return {
-      position: "relative",
-      padding: "22px 20px",
+      padding: "24px 28px",
+      border: "1px solid #27272a",
       borderRadius: "14px",
-      border: isHovered
-        ? "1px solid #00b4d8"
-        : featured
-        ? "1px solid rgba(0,180,216,0.30)"
-        : "1px solid #27272a",
-      background: featured ? "rgba(0,180,216,0.04)" : "#111113",
-      transition: "border-color 0.2s, transform 0.2s, box-shadow 0.2s",
-      transform: isHovered ? "translateY(-3px)" : "translateY(0)",
-      boxShadow: isHovered
-        ? "0 8px 32px rgba(0,180,216,0.10)"
-        : "none",
-      display: "flex",
-      flexDirection: "column",
-      gap: "10px",
+      marginBottom: "12px",
+      background: isHovered ? (index % 2 === 0 ? "#161618" : "rgba(0,180,216,0.07)") : bg,
+      transition: "background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s",
+      borderColor: isHovered ? "#00b4d8" : "#27272a",
+      transform: isHovered ? "translateY(-2px)" : "translateY(0)",
+      boxShadow: isHovered ? "0 6px 28px rgba(0,180,216,0.08)" : "none",
+      cursor: "default",
     };
   }
 
-  const cardTitleStyle = {
-    fontFamily: "Syne, sans-serif",
-    fontSize: "16px",
-    fontWeight: "700",
-    color: "#f4f4f5",
-    margin: "0",
+  const cardTopStyle = {
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    marginBottom: "10px",
+  };
+
+  const titleRowStyle = {
     display: "flex",
     alignItems: "center",
-    gap: "8px",
+    gap: "10px",
+  };
+
+  const dotStyle = {
+    width: "8px",
+    height: "8px",
+    borderRadius: "50%",
+    background: "#00b4d8",
+    flexShrink: 0,
+    boxShadow: "0 0 6px rgba(0,180,216,0.7)",
+  };
+
+  const titleStyle = {
+    fontFamily: "Syne, sans-serif",
+    fontSize: "17px",
+    fontWeight: "700",
+    color: "#f4f4f5",
+    margin: 0,
+  };
+
+  const iconLinkStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "14px",
+    flexShrink: 0,
+  };
+
+  const iconStyle = {
+    color: "#3f3f46",
+    fontSize: "17px",
+    textDecoration: "none",
+    transition: "color 0.2s",
   };
 
   const descStyle = {
     fontFamily: "DM Sans, sans-serif",
-    fontSize: "13px",
+    fontSize: "14px",
     color: "#71717a",
-    margin: "0",
-    lineHeight: "1.6",
-  };
-
-  const tagsRowStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "6px",
-    marginTop: "4px",
+    margin: "0 0 14px 0",
+    lineHeight: "1.65",
+    paddingLeft: "18px",
   };
 
   const cardFooterStyle = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: "auto",
-    paddingTop: "12px",
-    borderTop: "1px solid #1c1c1f",
+    flexWrap: "wrap",
+    gap: "8px",
+    paddingLeft: "18px",
   };
 
-  const categoryBadgeStyle = (cat) => {
-    const map = {
-      HTML:       "#E34F26",
-      JavaScript: "#F7DF1E",
-      React:      "#61DAFB",
-      Fullstack:  "#A78BFA",
-      Other:      "#a1a1aa",
-    };
-    const c = map[cat] || "#a1a1aa";
+  const tagsRowStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "6px",
+  };
+
+  const catBadgeStyle = (cat) => {
+    const c = categoryColors[cat] || "#a1a1aa";
     return {
       fontFamily: "DM Sans, sans-serif",
       fontSize: "10px",
-      padding: "2px 10px",
+      padding: "3px 10px",
       borderRadius: "99px",
       background: `${c}18`,
       color: c,
-      border: `1px solid ${c}35`,
+      border: `1px solid ${c}30`,
       letterSpacing: "0.5px",
     };
   };
 
-  const iconLinkStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "12px",
-  };
-
-  const iconStyle = {
-    color: "#52525b",
-    fontSize: "16px",
-    transition: "color 0.2s",
-    textDecoration: "none",
-  };
-
-  const featuredDotStyle = {
-    width: "7px",
-    height: "7px",
-    borderRadius: "50%",
-    background: "#00b4d8",
-    display: "inline-block",
-    boxShadow: "0 0 6px #00b4d8",
-    flexShrink: "0",
-  };
-
-  // ── Render ─────────────────────────────────────────────────────────────────
-
   return (
     <section id="projects" style={sectionStyle}>
 
-      {/* Label */}
-      {/* <p style={labelStyle}>03 — Projects</p> */}
-      <p style={{
-        fontFamily: "DM Sans, sans-serif",
-        fontSize: "12px",
-        letterSpacing: "0.2em",
-        textTransform: "uppercase",
-        color: "#00b4d8",
-        marginBottom: "12px",
-      }}>
-        03 — Projects
-      </p>
+      <p style={labelStyle}>03 — Projects</p>
 
-      <div style={{
-        width: "40px",
-        height: "3px",
-        background: "#00b4d8",
-        borderRadius: "2px",
-        marginBottom: "20px",
-      }} />
-
-      {/* Heading + GitHub link */}
       <div style={headingRowStyle}>
         <h2 style={headingStyle}>Things I've built</h2>
         <a
@@ -243,7 +226,7 @@ export default function Projects() {
           rel="noreferrer"
           style={githubAllStyle}
           onMouseEnter={(e) => (e.currentTarget.style.color = "#00b4d8")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#a1a1aa")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#52525b")}
         >
           <i className="fab fa-github" style={{ fontSize: "15px" }} />
           View all on GitHub
@@ -260,52 +243,21 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Cards grid */}
-      <div style={gridStyle}>
-        {filtered.map((project) => (
+      {/* Cards list */}
+      <div style={listStyle}>
+        {filtered.map((project, index) => (
           <div
             key={project.id}
-            style={cardStyle(project.id, project.featured)}
+            style={cardStyle(project.id, index)}
             onMouseEnter={() => setHoveredId(project.id)}
             onMouseLeave={() => setHoveredId(null)}
           >
-            {/* Title row */}
-            <h3 style={cardTitleStyle}>
-              {project.featured && <span style={featuredDotStyle} />}
-              {project.title}
-            </h3>
-
-            {/* Description */}
-            <p style={descStyle}>{project.description}</p>
-
-            {/* Tech tags */}
-            <div style={tagsRowStyle}>
-              {project.tech.map((t) => {
-                const tc = techColors[t] || defaultTechColor;
-                return (
-                  <span
-                    key={t}
-                    style={{
-                      fontFamily: "DM Sans, sans-serif",
-                      fontSize: "11px",
-                      padding: "3px 10px",
-                      borderRadius: "6px",
-                      background: tc.bg,
-                      color: tc.color,
-                      border: `1px solid ${tc.border}`,
-                    }}
-                  >
-                    {t}
-                  </span>
-                );
-              })}
-            </div>
-
-            {/* Footer: category badge + links */}
-            <div style={cardFooterStyle}>
-              <span style={categoryBadgeStyle(project.category)}>
-                {project.category}
-              </span>
+            {/* Top: title + icons */}
+            <div style={cardTopStyle}>
+              <div style={titleRowStyle}>
+                <span style={dotStyle} />
+                <h3 style={titleStyle}>{project.title}</h3>
+              </div>
               <div style={iconLinkStyle}>
                 {project.live && (
                   <a
@@ -315,7 +267,7 @@ export default function Projects() {
                     style={iconStyle}
                     title="Live demo"
                     onMouseEnter={(e) => (e.currentTarget.style.color = "#00b4d8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "#52525b")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "#3f3f46")}
                   >
                     <i className="fas fa-arrow-up-right-from-square" />
                   </a>
@@ -326,14 +278,42 @@ export default function Projects() {
                     target="_blank"
                     rel="noreferrer"
                     style={iconStyle}
-                    title="GitHub repo"
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "#00b4d8")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "#52525b")}
+                    title="GitHub"
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "#f4f4f5")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "#3f3f46")}
                   >
-                    <i className="fab fa-github" style={{ fontSize: "17px" }} />
+                    <i className="fab fa-github" />
                   </a>
                 )}
               </div>
+            </div>
+
+            {/* Description */}
+            <p style={descStyle}>{project.description}</p>
+
+            {/* Footer: tech tags + category badge */}
+            <div style={cardFooterStyle}>
+              <div style={tagsRowStyle}>
+                {project.tech.map((t) => {
+                  const tc = techColors[t] || defaultTechColor;
+                  return (
+                    <span key={t} style={{
+                      fontFamily: "DM Sans, sans-serif",
+                      fontSize: "11px",
+                      padding: "3px 10px",
+                      borderRadius: "6px",
+                      background: tc.bg,
+                      color: tc.color,
+                      border: `1px solid ${tc.border}`,
+                    }}>
+                      {t}
+                    </span>
+                  );
+                })}
+              </div>
+              <span style={catBadgeStyle(project.category)}>
+                {project.category}
+              </span>
             </div>
           </div>
         ))}
