@@ -161,3 +161,26 @@ export const stats = [
   { label: "YouTube Videos", value: 1, suffix: "" },
   { label: "Campus Events", value: 1, suffix: "+" },
 ];
+
+export const funFacts = [
+  {
+    emoji: "🌙",
+    title: "Night Owl",
+    desc: "My best code gets written after midnight. Mornings? Not so much.",
+  },
+  {
+    emoji: "🥛",
+    title: "Milk Over Chai",
+    desc: "ChaiCode ambassador who doesn't drink chai. Yes, I drink milk instead.",
+  },
+  {
+    emoji: "📵",
+    title: "Social Media? Barely.",
+    desc: "While everyone chases trends, I am too busy actually building things.",
+  },
+  {
+    emoji: "🗣️",
+    title: "Hinglish Speaker",
+    desc: "Friends expect Haryanvi, they get fluent Hindi-English mix instead.",
+  },
+];

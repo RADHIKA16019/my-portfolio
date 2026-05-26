@@ -8,6 +8,7 @@ import BatteryBanner from "./components/BatteryBanner";
 import Sidebar from "./components/Sidebar";
 import Hero from "./components/sections/Hero";
 
+import About from "./components/sections/About";
 function App() {
   const { isDark, toggleTheme } = useTheme();
   const [loading, setLoading] = useState(true);
@@ -31,9 +32,7 @@ function App() {
           <Hero />
 
           {/* Placeholder sections — will be replaced one by one */}
-          <section id="about" className="min-h-screen flex items-center justify-center">
-            <h1 className="font-syne text-5xl font-bold text-accent">About Section</h1>
-          </section>
+          <About />
 
           <section id="skills" className="min-h-screen flex items-center justify-center">
             <h1 className="font-syne text-5xl font-bold text-accent">Skills Section</h1>
