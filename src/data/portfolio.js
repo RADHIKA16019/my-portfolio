@@ -36,38 +36,6 @@ export const aboutInfo = {
 };
 
 
-export const projects = [
-  {
-    id: 1,
-    title: "[PROJECT_NAME]",
-    description: "[Short description of what this project does]",
-    tags: ["HTML", "CSS", "JavaScript"],
-    badge: "Self Built",          // "Self Built" | "AI Assisted" | "Schema Design"
-    github: "https://github.com/[username]/[repo]",
-    live: "[live-link-or-null]",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "[PROJECT_NAME]",
-    description: "[Short description of what this project does]",
-    tags: ["HTML", "CSS"],
-    badge: "AI Assisted",
-    github: "https://github.com/[username]/[repo]",
-    live: null,
-    featured: false,
-  },
-  {
-    id: 3,
-    title: "[PROJECT_NAME]",
-    description: "[Short description of what this project does]",
-    tags: ["Node.js", "MongoDB"],
-    badge: "Self Built",
-    github: "https://github.com/[username]/[repo]",
-    live: null,
-    featured: false,
-  },
-];
 
 export const certificates = [
   {
@@ -199,5 +167,109 @@ export const skills = [
       { name: "Next.js", icon: "devicon-nextjs-plain", level: "learning" },
       { name: "DSA in C++", icon: "devicon-cplusplus-plain colored", level: "learning" },
     ],
+  },
+];
+
+
+export const projects = [
+  {
+    id: 1,
+    title: "Mintlify Clone",
+    description: "Pixel-perfect clone of the Mintlify landing page.",
+    category: "HTML",
+    tech: ["HTML", "CSS"],
+    github: "https://github.com/radhika/minlify-clone",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 2,
+    title: "Cursor Clone",
+    description: "Static clone of the Cursor.sh landing page.",
+    category: "HTML",
+    tech: ["HTML", "CSS"],
+    github: "https://github.com/radhika/cursor-clone",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 3,
+    title: "BMI Calculator",
+    description: "Clean BMI calculator with result category display.",
+    category: "JavaScript",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/radhika/bmi-calculator",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Digital Watch",
+    description: "Live digital clock with date display and styling.",
+    category: "JavaScript",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/radhika/digital-watch",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "Color Switch Game",
+    description: "Tap-based color matching game built in vanilla JS.",
+    category: "JavaScript",
+    tech: ["HTML", "CSS", "JavaScript"],
+    github: "https://github.com/radhika/color-switch",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "Portfolio",
+    description: "Personal portfolio site built with React + Vite + Tailwind.",
+    category: "React",
+    tech: ["React", "Vite", "Tailwind CSS"],
+    github: "https://github.com/radhika/portfolio",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 7,
+    title: "CafeMate",
+    description: "AI-powered cafe management fullstack app with smart ordering.",
+    category: "Fullstack",
+    tech: ["React", "Node.js", "MongoDB", "AI"],
+    github: "https://github.com/radhika/cafemate",
+    live: "",
+    featured: true,
+  },
+  {
+    id: 8,
+    title: "Eventify",
+    description: "Fullstack event management platform with auth and dashboards.",
+    category: "Fullstack",
+    tech: ["React", "Node.js", "MongoDB"],
+    github: "https://github.com/radhika/eventify",
+    live: "",
+    featured: true,
+  },
+  {
+    id: 9,
+    title: "DB Schema Diagrams",
+    description: "Collection of database schema diagrams for various use cases.",
+    category: "Other",
+    tech: ["dbdiagram.io", "SQL"],
+    github: "https://github.com/radhika/db-schemas",
+    live: "",
+    featured: false,
+  },
+  {
+    id: 10,
+    title: "Polling App",
+    description: "Fullstack polling app with real-time votes — fixes in progress.",
+    category: "Fullstack",
+    tech: ["React", "Node.js", "MongoDB"],
+    github: "https://github.com/radhika/polling-app",
+    live: "",
+    featured: false,
   },
 ];

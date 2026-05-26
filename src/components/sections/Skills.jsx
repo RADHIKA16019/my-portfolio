@@ -1,26 +1,76 @@
+import { useState } from "react";
 import { skills } from "../../data/portfolio";
 
-function Skills() {
+const categoryConfig = {
+  "Languages": { color: "#f59e0b", bg: "rgba(245,158,11,0.08)", border: "rgba(245,158,11,0.2)" },
+  "Frontend":  { color: "#8b5cf6", bg: "rgba(139,92,246,0.08)", border: "rgba(139,92,246,0.2)" },
+  "Backend":   { color: "#10b981", bg: "rgba(16,185,129,0.08)", border: "rgba(16,185,129,0.2)" },
+  "Tools":     { color: "#00b4d8", bg: "rgba(0,180,216,0.08)",  border: "rgba(0,180,216,0.2)"  },
+};
 
-  const categoryColors = {
-    "Languages": "#f59e0b",
-    "Frontend": "#8b5cf6",
-    "Backend": "#10b981",
-    "Tools": "#00b4d8",
-    "Learning Next": "#f43f5e",
-  };
+function SkillChip({ skill, isLearning, hoverBg, hoverBorder, hoverColor }) {
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section id="skills" style={{
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      padding: "80px 4rem",
-      position: "relative",
-    }}>
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "8px",
+        padding: "8px 14px",
+        borderRadius: "10px",
+        background: hovered ? hoverBg : "rgba(255,255,255,0.03)",
+        border: "1px solid " + (hovered ? hoverBorder : "rgba(255,255,255,0.06)"),
+        cursor: "default",
+        transition: "all 0.2s ease",
+        transform: hovered ? "translateY(-2px)" : "translateY(0)",
+      }}
+    >
+      <i className={skill.icon} style={{ fontSize: "20px" }}></i>
+      <span style={{
+        fontFamily: "DM Sans, sans-serif",
+        fontSize: "13px",
+        fontWeight: "500",
+        color: hovered ? hoverColor : "#d4d4d8",
+        transition: "color 0.2s ease",
+      }}>
+        {skill.name}
+      </span>
+      {isLearning && (
+        <span style={{
+          fontFamily: "DM Sans, sans-serif",
+          fontSize: "9px",
+          color: "#f43f5e",
+          background: "rgba(244,63,94,0.1)",
+          border: "1px solid rgba(244,63,94,0.2)",
+          borderRadius: "999px",
+          padding: "2px 6px",
+          letterSpacing: "0.05em",
+        }}>
+          learning
+        </span>
+      )}
+    </div>
+  );
+}
 
-      {/* Section label */}
+function Skills() {
+  const filteredSkills = skills.filter((g) => g.category !== "Learning Next");
+
+  return (
+    <section
+      id="skills"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "80px 4rem",
+        position: "relative",
+      }}
+    >
       <p style={{
         fontFamily: "DM Sans, sans-serif",
         fontSize: "12px",
@@ -45,7 +95,7 @@ function Skills() {
         fontSize: "clamp(2rem, 4vw, 3rem)",
         fontWeight: "800",
         color: "#fff",
-        marginBottom: "16px",
+        marginBottom: "12px",
         lineHeight: "1.1",
       }}>
         What I work <span style={{ color: "#00b4d8" }}>with</span>
@@ -59,122 +109,74 @@ function Skills() {
         maxWidth: "480px",
         lineHeight: "1.7",
       }}>
-        Honest skills — what I know, what I use, and what I am currently learning.
+        Honest skills — what I know and what I use daily.
       </p>
 
-      {/* Skills grid — category by category */}
       <div style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "48px",
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "32px",
         maxWidth: "860px",
       }}>
-        {skills.map((group) => {
-          const color = categoryColors[group.category] || "#00b4d8";
+        {filteredSkills.map((group) => {
+          const cfg = categoryConfig[group.category] || {
+            color: "#00b4d8",
+            bg: "rgba(0,180,216,0.08)",
+            border: "rgba(0,180,216,0.2)",
+          };
 
           return (
-            <div key={group.category}>
-
-              {/* Category label */}
+            <div
+              key={group.category}
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.06)",
+                borderRadius: "20px",
+                padding: "28px",
+              }}
+            >
               <div style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "12px",
-                marginBottom: "20px",
+                gap: "10px",
+                marginBottom: "24px",
               }}>
                 <div style={{
                   width: "8px",
                   height: "8px",
                   borderRadius: "50%",
-                  background: color,
-                  boxShadow: `0 0 8px ${color}`,
+                  background: cfg.color,
+                  boxShadow: "0 0 8px " + cfg.color,
                   flexShrink: 0,
                 }} />
                 <span style={{
                   fontFamily: "Syne, sans-serif",
                   fontSize: "13px",
-                  fontWeight: "600",
-                  color: color,
+                  fontWeight: "700",
+                  color: cfg.color,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                 }}>
                   {group.category}
                 </span>
-                <div style={{
-                  flex: 1,
-                  height: "1px",
-                  background: "rgba(255,255,255,0.05)",
-                }} />
               </div>
 
-              {/* Skills row */}
-              <div style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "12px",
-              }}>
-                {group.items.map((skill) => {
-                  const isLearning = skill.level === "learning";
-
-                  return (
-                    <div
-                      key={skill.name}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
-                        padding: "10px 16px",
-                        borderRadius: "12px",
-                        background: isLearning
-                          ? "rgba(244,63,94,0.05)"
-                          : "rgba(255,255,255,0.03)",
-                        border: isLearning
-                          ? "1px solid rgba(244,63,94,0.2)"
-                          : "1px solid rgba(255,255,255,0.07)",
-                        position: "relative",
-                      }}
-                    >
-                      {/* Devicon */}
-                      <i
-                        className={skill.icon}
-                        style={{ fontSize: "22px" }}
-                      ></i>
-
-                      {/* Skill name */}
-                      <span style={{
-                        fontFamily: "DM Sans, sans-serif",
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        color: isLearning ? "#f43f5e" : "#d4d4d8",
-                      }}>
-                        {skill.name}
-                      </span>
-
-                      {/* Learning badge */}
-                      {isLearning && (
-                        <span style={{
-                          fontFamily: "DM Sans, sans-serif",
-                          fontSize: "10px",
-                          color: "#f43f5e",
-                          background: "rgba(244,63,94,0.1)",
-                          border: "1px solid rgba(244,63,94,0.2)",
-                          borderRadius: "999px",
-                          padding: "2px 8px",
-                          letterSpacing: "0.05em",
-                        }}>
-                          learning
-                        </span>
-                      )}
-                    </div>
-                  );
-                })}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                {group.items.map((skill) => (
+                  <SkillChip
+                    key={skill.name}
+                    skill={skill}
+                    isLearning={skill.level === "learning"}
+                    hoverBg={cfg.bg}
+                    hoverBorder={cfg.border}
+                    hoverColor={cfg.color}
+                  />
+                ))}
               </div>
-
             </div>
           );
         })}
       </div>
-
     </section>
   );
 }
