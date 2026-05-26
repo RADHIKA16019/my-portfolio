@@ -1,33 +1,59 @@
+import { useState } from "react";
 import { useTheme } from "./hooks/useTheme";
+
+import Preloader from "./components/Preloader";
+import Cursor from "./components/Cursor";
+import ScrollProgress from "./components/ScrollProgress";
+import BatteryBanner from "./components/BatteryBanner";
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
+  const [loading, setLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-800 dark:text-zinc-100">
-      
-      {/* Scroll Progress Bar */}
-      <div id="scroll-progress"></div>
+    <>
+      {/* Custom cursor */}
+      <Cursor />
 
-      {/* Temporary theme toggle button — just for testing */}
-      <button
-        onClick={toggleTheme}
-        className="fixed top-4 right-4 z-50 bg-accent text-white px-4 py-2 rounded-full font-dm text-sm"
+      {/* Scroll progress bar */}
+      <ScrollProgress />
+
+      {/* Battery warning banner */}
+      <BatteryBanner />
+
+      {/* Preloader — shows first, then reveals site */}
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+
+      {/* Main site — hidden until preloader done */}
+      <div
+        className={`min-h-screen bg-white dark:bg-zinc-950 text-zinc-800 
+          dark:text-zinc-100 transition-opacity duration-700
+          ${loading ? "opacity-0" : "opacity-100"}`}
       >
-        {isDark ? "☀️ Light" : "🌙 Dark"}
-      </button>
+        {/* Temporary test content */}
+        <div className="p-12">
+          <h1 className="font-syne text-5xl font-bold text-accent mb-4">
+            Portfolio 🚀
+          </h1>
+          <p className="font-dm text-zinc-400 mb-6">
+            Preloader ✅ Cursor ✅ Scroll Progress ✅
+          </p>
+          <button
+            onClick={toggleTheme}
+            className="bg-accent text-white px-6 py-2 rounded-full font-dm text-sm"
+          >
+            {isDark ? "☀️ Light Mode" : "🌙 Dark Mode"}
+          </button>
 
-      {/* Test content to check theme working */}
-      <div className="p-12">
-        <h1 className="font-syne text-5xl font-bold text-accent mb-4">
-          Portfolio 🚀
-        </h1>
-        <p className="font-dm text-zinc-400 dark:text-zinc-400">
-          Theme is: {isDark ? "🌙 Dark" : "☀️ Light"}
-        </p>
+          {/* Long content to test scroll progress */}
+          {Array.from({ length: 20 }).map((_, i) => (
+            <p key={i} className="font-dm text-zinc-500 mt-4">
+              Scroll karo to test progress bar — line {i + 1}
+            </p>
+          ))}
+        </div>
       </div>
-
-    </div>
+    </>
   );
 }
 
