@@ -4,7 +4,7 @@ import { personalInfo, socialLinks, typingStrings } from "../../data/portfolio";
 import profile from "/images/profile.png";
 
 function getGreeting() {
-  return "Hlo🙏🏻, " + (new Date().getHours() < 12 ? "Good Morning" : "Good Evening");
+  return "Hlo🙏🏻, "
 }
 
 function Hero({ isDark }) {
@@ -154,7 +154,7 @@ lineHeight:"1.1",
 marginBottom:"16px",
 color:nameColor,
 }}>
-{personalInfo.name}
+  <p id="portfolio-logo">{personalInfo.name}</p>
 </h1>
 
 <div

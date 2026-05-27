@@ -41,7 +41,7 @@ function Preloader({ onComplete }) {
 
         {/* Name */}
         <h1 className="font-syne text-3xl font-bold text-white tracking-widest uppercase">
-          [YOUR_NAME]
+          [RADHIKA]
         </h1>
 
         {/* Loading bar */}

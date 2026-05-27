@@ -217,16 +217,16 @@ export const skills = [
 ];
 
 export const projects = [
-  // {
-  //   id: 1,
-  //   title: "Cursor Clone",
-  //   description: "Static clone of the Cursor.sh landing page.",
-  //   category: "HTML",
-  //   tech: ["HTML", "CSS"],
-  //   github: "https://github.com/RADHIKA16019/Cursor.git",
-  //   live: "https://radhika16019.github.io/Cursor/",
-  //   featured: false,
-  // },
+  {
+    id: 1,
+    title: "Cursor Clone",
+    description: "Static clone of the Cursor.sh landing page.",
+    category: "HTML",
+    tech: ["HTML", "CSS"],
+    github: "https://github.com/RADHIKA16019/Cursor.git",
+    live: "https://radhika16019.github.io/Cursor/",
+    featured: false,
+  },
   // {
   //   id: 2,
   //   title: "Projects",
@@ -242,7 +242,7 @@ export const projects = [
     title: "Portfolio",
     description: "Personal portfolio site built with React + Vite + Tailwind.",
     category: "React",
-    tech: ["React", "Vite", "Tailwind CSS"],
+    tech: ["React", "Vite"],
     github: "https://github.com/RADHIKA16019/my-portfolio.git",
     live: "",
     featured: false,
