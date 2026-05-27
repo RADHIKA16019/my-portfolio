@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Typed from "typed.js";
 import { personalInfo, socialLinks, typingStrings } from "../../data/portfolio";
+import profile from "/images/profile.png";
 
 function getGreeting() {
   return "Hlo🙏🏻, " + (new Date().getHours() < 12 ? "Good Morning" : "Good Evening");
@@ -95,144 +96,226 @@ function Hero({ isDark }) {
         </span>
       </div>
 
-      <div style={{ position: "relative", zIndex: 10, maxWidth: "48rem" }}>
+      <div
+style={{
+position:"relative",
+zIndex:10,
+display:"flex",
+alignItems:"center",
+justifyContent:"space-between",
+gap:"80px",
+width:"100%",
+}}
+>
 
-        {/* Clock */}
-        <div style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          marginBottom: "24px",
-          padding: "8px 16px",
-          borderRadius: "999px",
-          background: "rgba(0,180,216,0.08)",
-          border: "1px solid rgba(0,180,216,0.2)",
-          color: "#00b4d8",
-          fontFamily: "DM Sans, sans-serif",
-          fontSize: "14px",
-        }}>
-          <i className="fa-solid fa-clock" style={{ fontSize: "12px" }}></i>
-          <span style={{ fontFamily: "monospace", letterSpacing: "0.1em" }}>{clock}</span>
-        </div>
+{/* LEFT CONTENT */}
+<div style={{
+flex:1,
+maxWidth:"48rem",
+}}>
 
-        {/* Greeting */}
-        <p style={{
-          fontFamily: "DM Sans, sans-serif",
-          color: mutedColor,
-          fontSize: "18px",
-          marginBottom: "8px",
-          letterSpacing: "0.05em",
-        }}>
-          {greeting}
-        </p>
+{/* Clock */}
+<div style={{
+display:"inline-flex",
+alignItems:"center",
+gap:"8px",
+marginBottom:"24px",
+padding:"8px 16px",
+borderRadius:"999px",
+background:"rgba(0,180,216,0.08)",
+border:"1px solid rgba(0,180,216,0.2)",
+color:"#00b4d8",
+fontFamily:"DM Sans, sans-serif",
+fontSize:"14px",
+}}>
+<i className="fa-solid fa-clock"/>
+<span style={{
+fontFamily:"monospace",
+letterSpacing:"0.1em",
+}}>
+{clock}
+</span>
+</div>
 
-        {/* Name */}
-        <h1 style={{
-          fontFamily: "Syne, sans-serif",
-          fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-          fontWeight: "800",
-          lineHeight: "1.1",
-          marginBottom: "16px",
-          color: nameColor,
-        }}>
-          {personalInfo.name}
-        </h1>
+<p style={{
+fontFamily:"DM Sans, sans-serif",
+color: mutedColor,
+fontSize:"18px",
+marginBottom:"8px",
+}}>
+{greeting}
+</p>
 
-        {/* Open to work badge */}
-        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
-          <span style={{
-            width: "10px",
-            height: "10px",
-            borderRadius: "50%",
-            background: "#4ade80",
-            boxShadow: "0 0 8px #4ade80",
-            display: "inline-block",
-            animation: "blink 1.2s step-end infinite",
-          }} />
-          <span style={{
-            fontFamily: "DM Sans, sans-serif",
-            fontSize: "14px",
-            color: "#4ade80",
-            letterSpacing: "0.05em",
-          }}>
-            Open to Opportunities
-          </span>
-        </div>
+<h1 style={{
+fontFamily:"Syne, sans-serif",
+fontSize:"clamp(2.5rem,6vw,4.5rem)",
+fontWeight:"800",
+lineHeight:"1.1",
+marginBottom:"16px",
+color:nameColor,
+}}>
+{personalInfo.name}
+</h1>
 
-        {/* Typing */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px" }}>
-          <span style={{ fontFamily: "DM Sans, sans-serif", color: mutedColor, fontSize: "20px" }}>
-            I am a
-          </span>
-          <span style={{
-            fontFamily: "Syne, sans-serif",
-            fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
-            fontWeight: "700",
-            color: "#00b4d8",
-          }}>
-            <span ref={typedRef} />
-          </span>
-        </div>
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"8px",
+marginBottom:"16px",
+}}
+>
+<span
+style={{
+width:"10px",
+height:"10px",
+borderRadius:"50%",
+background:"#4ade80",
+boxShadow:"0 0 8px #4ade80",
+}}
+/>
 
-        {/* College */}
-        <div style={{
-          display: "flex",
-          alignItems: "flex-start",
-          gap: "8px",
-          marginBottom: "40px",
-          fontFamily: "DM Sans, sans-serif",
-          color: mutedColor,
-          fontSize: "14px",
-        }}>
-          <i className="fa-solid fa-location-dot" style={{ color: "#00b4d8", fontSize: "13px", marginTop: "3px", flexShrink: 0 }}></i>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <span style={{ color: subColor }}>{personalInfo.college}</span>
-            <span>{"B.Tech CSE" + " \u00B7 " + personalInfo.batch + " \u00B7 " + personalInfo.location}</span>
-          </div>
-        </div>
+<span
+style={{
+fontFamily:"DM Sans",
+fontSize:"14px",
+color:"#4ade80",
+}}
+>
+Open to Opportunities
+</span>
+</div>
 
-        {/* CTAs */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}>
-          <button
-            style={{
-              fontFamily: "DM Sans, sans-serif",
-              padding: "12px 24px",
-              borderRadius: "12px",
-              fontWeight: "500",
-              color: "#fff",
-              background: "linear-gradient(135deg, #00b4d8, #0096c7)",
-              boxShadow: "0 4px 20px rgba(0,180,216,0.3)",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "15px",
-            }}
-            onClick={() => document.getElementById("projects") && document.getElementById("projects").scrollIntoView({ behavior: "smooth" })}
-          >
-            <i className="fa-solid fa-folder-open" style={{ marginRight: "8px" }}></i>
-            View Projects
-          </button>
+<div
+style={{
+display:"flex",
+alignItems:"center",
+gap:"12px",
+marginBottom:"32px",
+}}
+>
+<span style={{
+fontFamily:"DM Sans",
+color:mutedColor,
+fontSize:"20px",
+}}>
+I am a
+</span>
 
-          <a href={personalInfo.resumeLink} download style={{
-            fontFamily: "DM Sans, sans-serif",
-            padding: "12px 24px",
-            borderRadius: "12px",
-            fontWeight: "500",
-            color: "#00b4d8",
-            background: isDark ? "rgba(0,180,216,0.05)" : "rgba(0,180,216,0.08)",
-            border: "1px solid rgba(0,180,216,0.4)",
-            cursor: "pointer",
-            fontSize: "15px",
-            textDecoration: "none",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-          }}>
-            <i className="fa-solid fa-download" style={{ fontSize: "13px" }}></i>
-            Download Resume
-          </a>
-        </div>
+<span
+style={{
+fontFamily:"Syne",
+fontSize:"1.5rem",
+fontWeight:"700",
+color:"#00b4d8",
+}}
+>
+<span ref={typedRef}/>
+</span>
+</div>
 
-      </div>
+<div
+style={{
+display:"flex",
+gap:"8px",
+marginBottom:"40px",
+color:mutedColor,
+}}
+>
+<i className="fa-solid fa-location-dot" style={{
+color:"#00b4d8",
+marginTop:"4px",
+}}/>
+
+<div>
+<div>{personalInfo.college}</div>
+
+<div>
+{"B.Tech CSE · "}
+{personalInfo.batch}
+{" · "}
+{personalInfo.location}
+</div>
+
+</div>
+</div>
+
+<div
+style={{
+display:"flex",
+gap:"16px",
+}}
+>
+
+<button
+style={{
+padding:"12px 24px",
+borderRadius:"12px",
+background:
+"linear-gradient(135deg,#00b4d8,#0096c7)",
+border:"none",
+color:"#fff",
+cursor:"pointer",
+}}
+>
+View Projects
+</button>
+
+<a
+href={personalInfo.resumeLink}
+download
+style={{
+padding:"12px 24px",
+borderRadius:"12px",
+border:"1px solid rgba(0,180,216,.3)",
+color:"#00b4d8",
+textDecoration:"none",
+}}
+>
+Download Resume
+</a>
+
+</div>
+
+</div>
+
+{/* RIGHT PHOTO */}
+<div
+style={{
+position:"relative",
+flexShrink:0,
+}}
+>
+
+<div
+style={{
+position:"absolute",
+inset:"-30px",
+borderRadius:"40px",
+background:
+"radial-gradient(circle, rgba(0,180,216,.22), transparent)",
+filter:"blur(40px)",
+}}
+/>
+
+<img
+src="/images/profile.png"
+alt="Profile"
+style={{
+width:"360px",
+height:"450px",
+objectFit:"cover",
+borderRadius:"28px",
+border:"1px solid rgba(0,180,216,.18)",
+boxShadow:"0 24px 70px rgba(0,0,0,.35)",
+position:"relative",
+zIndex:1,
+}}
+/>
+
+</div>
+
+</div>
 
       {/* Scroll indicator */}
       <div style={{

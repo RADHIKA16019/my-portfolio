@@ -44,7 +44,7 @@ const socials = [
   },
   {
     label: "Hashnode",
-    icon: "fa-brands fa-hashnode",
+    icon: "fab fa-hashnode",
     key: "hashnode",
     color: "#2962FF",
     bg: "rgba(41,98,255,0.10)",
@@ -124,14 +124,14 @@ export default function Contact() {
   }
 
   const footerStyle = {
-    marginTop: "90px",
-    paddingTop: "26px",
+    marginTop: "40px",
+    paddingTop: "18px",
     borderTop: "1px solid rgba(255,255,255,0.08)",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
-    flexWrap: "wrap",
-    gap: "12px",
+    // flexWrap: "wrap",
+    // gap: "12px",
   };
 
   const copyrightStyle = {
@@ -152,10 +152,11 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={{minHeight: "100vh",
+    <section id="contact" style={{
+      // minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      // justifyContent: "center",
       padding: "80px 5rem",
       position: "relative",}}>
 
@@ -192,7 +193,7 @@ export default function Contact() {
       <div style={iconsWrapperStyle}>
         {socials.map((s) => {
           const url = s.isEmail
-            ? `mailto:${contactInfo.email}`
+            ? `https://mail.google.com/mail/?view=cm&fs=1&to=${contactInfo.email}&su=Hello%20Radhika`
             : contactInfo[s.key];
 
           if (!url) return null;
@@ -201,7 +202,7 @@ export default function Contact() {
             <a
               key={s.label}
               href={url}
-              target={s.isEmail ? "_self" : "_blank"}
+              target="_blank"
               rel="noreferrer"
               style={socialBtnStyle(s)}
               onMouseEnter={() => setHoveredSocial(s.label)}

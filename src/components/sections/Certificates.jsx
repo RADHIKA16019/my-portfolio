@@ -19,44 +19,55 @@ const defaultCat = {
 
 // ── Issuer icon fallback (Font Awesome) ────────────────────────────────────
 function IssuerIcon({ issuer, logo }) {
-  if (logo) {
+  if (!logo) {
     return (
-      <img
-        src={logo}
-        alt={issuer}
+      <div
         style={{
           width: "38px",
           height: "38px",
           borderRadius: "8px",
-          objectFit: "contain",
-          background: "#1c1c1f",
-          padding: "6px",
-          border: "1px solid #27272a",
+          background: "rgba(0,180,216,0.10)",
+          border: "1px solid rgba(0,180,216,0.25)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           flexShrink: 0,
         }}
-        onError={(e) => { e.currentTarget.style.display = "none"; }}
-      />
+      >
+        <i
+          className="fas fa-certificate"
+          style={{
+            color: "#00b4d8",
+            fontSize: "16px",
+          }}
+        />
+      </div>
     );
   }
+
   return (
-    <div style={{
-      width: "38px",
-      height: "38px",
-      borderRadius: "8px",
-      background: "rgba(0,180,216,0.10)",
-      border: "1px solid rgba(0,180,216,0.25)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      flexShrink: 0,
-    }}>
-      <i className="fas fa-certificate" style={{ color: "#00b4d8", fontSize: "16px" }} />
-    </div>
+    <img
+      src={logo}
+      alt={issuer}
+      style={{
+        width: "38px",
+        height: "38px",
+        borderRadius: "8px",
+        objectFit: "cover",
+        background: "#1c1c1f",
+        border: "1px solid #27272a",
+        flexShrink: 0,
+      }}
+      onError={(e) => {
+        e.currentTarget.style.display = "none";
+      }}
+    />
   );
 }
 
 export default function Certificates() {
   const [selected, setSelected] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   // ── Section styles ─────────────────────────────────────────────────────────
   const sectionStyle = {
@@ -87,6 +98,10 @@ export default function Certificates() {
     gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
     gap: "16px",
   };
+
+  const visibleCertificates = showAll
+  ? certificates
+  : certificates.slice(0, 3);
 
   // ── Card styles ────────────────────────────────────────────────────────────
   function cardStyle(id) {
@@ -207,7 +222,7 @@ export default function Certificates() {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "80px 5rem",
+      padding: "80px 5rem 10px",
       position: "relative",}}>
 
       {/* Label */}
@@ -236,7 +251,7 @@ export default function Certificates() {
         fontSize: "clamp(2rem, 4vw, 3rem)",
         fontWeight: "800",
         color: "#ffffff" | "#09090b",
-        marginBottom: "12px",
+        marginBottom: "36px",
         lineHeight: "1.1",
       }}>
         What I've <span style={{ color: "#00b4d8" }}>earned</span>
@@ -244,7 +259,7 @@ export default function Certificates() {
 
       {/* Cards grid */}
       <div style={gridStyle}>
-        {certificates.map((cert) => {
+        {visibleCertificates.map((cert) => {
           const cat = categoryColors[cert.category] || defaultCat;
           return (
             <div
@@ -323,6 +338,58 @@ export default function Certificates() {
           );
         })}
       </div>
+
+      {certificates.length > 3 && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "28px",
+          }}
+        >
+          <button
+            onClick={() => setShowAll(!showAll)}
+            style={{
+              padding: "12px 28px",
+              borderRadius: "999px",
+              border: "1px solid rgba(0,180,216,0.35)",
+              background: showAll
+                ? "rgba(255,255,255,0.03)"
+                : "rgba(0,180,216,0.08)",
+              color: showAll ? "#a1a1aa" : "#00b4d8",
+              fontFamily: "Syne, sans-serif",
+              fontSize: "14px",
+              fontWeight: "700",
+              cursor: "pointer",
+              transition: "all .25s ease",
+              boxShadow: showAll
+                ? "none"
+                : "0 0 28px rgba(0,180,216,.18)",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-3px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            {showAll ? (
+              <>
+                Show Less
+                <i className="fas fa-arrow-up" />
+              </>
+            ) : (
+              <>
+                View All Certificates
+                <i className="fas fa-arrow-right" />
+              </>
+            )}
+          </button>
+        </div>
+      )}
 
       {/* ── Modal ── */}
       {selected && (

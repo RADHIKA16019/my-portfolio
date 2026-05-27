@@ -64,7 +64,7 @@ function About({ isDark }) {
             Currently focused on{" "}
             <span style={{ color: highlightColor, fontWeight: "500" }}>web development</span>
             {" "}and exploring{" "}
-            <span style={{ color: highlightColor, fontWeight: "500" }}>Node.js</span>
+            <span style={{ color: highlightColor, fontWeight: "500" }}>DSA</span>
             . Still early in my journey — but moving fast and genuinely loving every part of it.
           </p>
 

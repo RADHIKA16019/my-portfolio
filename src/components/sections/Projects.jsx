@@ -38,10 +38,16 @@ const cardBgs = ["#111113", "rgba(0,180,216,0.04)"];
 export default function Projects() {
   const [active, setActive] = useState("All");
   const [hoveredId, setHoveredId] = useState(null);
+  const [showAll, setShowAll] = useState(false);
+
 
   const filtered =
     active === "All" ? projects : projects.filter((p) => p.category === active);
 
+  const visibleProjects = showAll
+  ? filtered
+  : filtered.slice(0, 3);
+  
   const sectionStyle = {
     padding: "96px 40px",
     maxWidth: "960px",
@@ -260,7 +266,7 @@ export default function Projects() {
         
 
         <a
-          href="https://github.com/radhika"
+          href="https://github.com/RADHIKA16019"
           target="_blank"
           rel="noreferrer"
           style={githubAllStyle}
@@ -284,7 +290,7 @@ export default function Projects() {
 
       {/* Cards list */}
       <div style={listStyle}>
-        {filtered.map((project, index) => (
+        {visibleProjects.map((project, index) => (
           <div
             key={project.id}
             style={cardStyle(project.id, index)}
@@ -358,6 +364,58 @@ export default function Projects() {
         ))}
       </div>
 
+        {filtered.length > 3 && (
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      marginTop: "28px",
+    }}
+  >
+    <button
+      onClick={() => setShowAll(!showAll)}
+      style={{
+        padding: "12px 28px",
+        borderRadius: "999px",
+        border: "1px solid rgba(0,180,216,0.35)",
+        background: showAll
+          ? "rgba(255,255,255,0.03)"
+          : "rgba(0,180,216,0.08)",
+        color: showAll ? "#a1a1aa" : "#00b4d8",
+        fontFamily: "Syne, sans-serif",
+        fontSize: "14px",
+        fontWeight: "700",
+        cursor: "pointer",
+        transition: "all .25s ease",
+        boxShadow: showAll
+          ? "none"
+          : "0 0 28px rgba(0,180,216,.18)",
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = "translateY(-3px)";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = "translateY(0)";
+      }}
+    >
+      {showAll ? (
+        <>
+          Show Less
+          <i className="fas fa-arrow-up" />
+        </>
+      ) : (
+        <>
+          View All Projects
+          <i className="fas fa-arrow-right" />
+        </>
+      )}
+    </button>
+  </div>
+)}
+    
     </section>
   );
 }

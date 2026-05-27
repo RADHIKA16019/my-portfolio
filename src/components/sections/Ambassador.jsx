@@ -30,7 +30,7 @@ const activities = [
   {
     icon: "fa-solid fa-pen-nib",
     color: "#0bf5c2",
-    bg: "rgba(245,158,11,0.08)",
+    bg: "rgba(11, 245, 120, 0.08)",
     border: "rgba(11, 239, 117, 0.3)",
     title: "Blogs Written",
     // count: "50+",
@@ -145,6 +145,95 @@ function ActivityCard({ item, isDark }) {
   );
 }
 
+function ClubCard({ club, isDark }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: "16px",
+        padding: "20px 24px",
+        borderRadius: "14px",
+
+        background: hovered
+          ? `${club.color}10`
+          : isDark
+          ? "rgba(255,255,255,0.02)"
+          : "rgba(0,0,0,0.02)",
+
+        border:
+          "1px solid " +
+          (hovered
+            ? `${club.color}55`
+            : isDark
+            ? "rgba(255,255,255,0.07)"
+            : "rgba(0,0,0,0.07)"),
+
+        transform: hovered ? "translateY(-4px)" : "translateY(0)",
+        transition: "all .25s ease",
+      }}
+    >
+      <div
+        style={{
+          width: "44px",
+          height: "44px",
+          borderRadius: "12px",
+          background: hovered
+            ? `${club.color}18`
+            : "rgba(0,180,216,0.08)",
+
+          border: `1px solid ${
+            hovered ? club.color : "rgba(0,180,216,0.15)"
+          }`,
+
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <i
+          className={club.icon}
+          style={{
+            color: club.color,
+            fontSize: "18px",
+          }}
+        />
+      </div>
+
+      <div>
+        <p
+          style={{
+            fontFamily: "Syne, sans-serif",
+            fontSize: "15px",
+            fontWeight: "700",
+            color: hovered
+              ? club.color
+              : isDark
+              ? "#e4e4e7"
+              : "#18181b",
+          }}
+        >
+          {club.name}
+        </p>
+
+        <p
+          style={{
+            fontFamily: "DM Sans, sans-serif",
+            fontSize: "13px",
+            color: hovered ? club.color : "#71717a",
+          }}
+        >
+          {club.fullName}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function Ambassador({ isDark }) {
   const headingColor = isDark ? "#ffffff" : "#09090b";
   const mutedColor = isDark ? "#71717a" : "#52525b";
@@ -221,49 +310,14 @@ function Ambassador({ isDark }) {
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+
             {clubs.map((club, i) => (
-              <div key={i} style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                padding: "20px 24px",
-                borderRadius: "14px",
-                background: clubCardBg,
-                border: "1px solid " + clubCardBorder,
-              }}>
-                <div style={{
-                  width: "44px",
-                  height: "44px",
-                  borderRadius: "12px",
-                  background: "rgba(0,180,216,0.08)",
-                  border: "1px solid rgba(0,180,216,0.15)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                }}>
-                  <i className={club.icon} style={{ fontSize: "18px", color: club.color }}></i>
-                </div>
-                <div>
-                  <p style={{
-                    fontFamily: "Syne, sans-serif",
-                    fontSize: "15px",
-                    fontWeight: "700",
-                    color: isDark ? "#e4e4e7" : "#18181b",
-                    marginBottom: "2px",
-                  }}>
-                    {club.name}
-                  </p>
-                  <p style={{
-                    fontFamily: "DM Sans, sans-serif",
-                    fontSize: "13px",
-                    color: isDark ? "#71717a" : "#71717a",
-                  }}>
-                    {club.fullName}
-                  </p>
-                </div>
-              </div>
-            ))}
+  <ClubCard
+    key={i}
+    club={club}
+    isDark={isDark}
+  />
+))}
 
             {/* Add more clubs note */}
             {/* <p style={{

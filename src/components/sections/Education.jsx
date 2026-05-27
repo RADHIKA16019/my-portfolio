@@ -31,6 +31,7 @@ export default function Education() {
     display: "flex",
     flexDirection: "column",
     gap: "16px",
+    marginTop:"8px",
   };
 
   function cardStyle(id) {
@@ -164,11 +165,11 @@ export default function Education() {
 
   return (
     <section id="education" style={{
-      minHeight: "100vh",
+      // minHeight: "100vh",
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      padding: "80px 5rem",
+      padding: "80px 5rem 60px",
       position: "relative",
     }}>
 
@@ -197,7 +198,7 @@ export default function Education() {
         fontSize: "clamp(2rem, 4vw, 3rem)",
         fontWeight: "800",
         color: "#ffffff" | "#09090b",
-        marginBottom: "12px",
+        marginBottom: "36px",
         lineHeight: "1.1",
       }}>
         My academic <span style={{ color: "#00b4d8" }}>journey</span>
