@@ -11,8 +11,7 @@ function Cursor() {
   const ringRef = useRef(null);
 
   useEffect(() => {
-    // Don't show on touch devices
-    if (window.matchMedia("(pointer: coarse)").matches) return;
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
     const dot = dotRef.current;
     const ring = ringRef.current;
@@ -22,12 +21,24 @@ function Cursor() {
     let ringX = 0;
     let ringY = 0;
 
-    // Move dot instantly with mouse
+    // Move dot instantly with mouse or touch
     const onMouseMove = (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
       dot.style.left = `${mouseX}px`;
       dot.style.top = `${mouseY}px`;
+    };
+
+    const onTouchMove = (e) => {
+      if (!e.touches || e.touches.length === 0) return;
+      const t = e.touches[0];
+      mouseX = t.clientX;
+      mouseY = t.clientY;
+      dot.style.left = `${mouseX}px`;
+      dot.style.top = `${mouseY}px`;
+      // also update ring target so it follows
+      ring.style.left = `${mouseX}px`;
+      ring.style.top = `${mouseY}px`;
     };
 
     // Ring follows with slight delay (smooth lag effect)
@@ -64,11 +75,44 @@ function Cursor() {
       el.addEventListener("mouseleave", onMouseLeave);
     });
 
-    window.addEventListener("mousemove", onMouseMove);
+    if (isTouch) {
+      // start hidden on touch devices until interaction
+      dot.style.display = "none";
+      ring.style.display = "none";
+      const onTouchStart = (e) => {
+        dot.style.display = "block";
+        ring.style.display = "block";
+        onTouchMove(e);
+        // small pop effect
+        dot.style.transform = "translate(-50%, -50%) scale(1.6)";
+        setTimeout(() => {
+          dot.style.transform = "translate(-50%, -50%) scale(1)";
+        }, 180);
+      };
+      const onTouchEnd = () => {
+        // hide after short delay so finger lift doesn't show lingering dot
+        setTimeout(() => {
+          dot.style.display = "none";
+          ring.style.display = "none";
+        }, 120);
+      };
+
+      window.addEventListener("touchstart", onTouchStart, { passive: true });
+      window.addEventListener("touchmove", onTouchMove, { passive: true });
+      window.addEventListener("touchend", onTouchEnd, { passive: true });
+    } else {
+      window.addEventListener("mousemove", onMouseMove);
+    }
 
     // Cleanup
     return () => {
-      window.removeEventListener("mousemove", onMouseMove);
+      if (isTouch) {
+        window.removeEventListener("touchstart", onTouchMove);
+        window.removeEventListener("touchmove", onTouchMove);
+        window.removeEventListener("touchend", () => {});
+      } else {
+        window.removeEventListener("mousemove", onMouseMove);
+      }
       clickables.forEach((el) => {
         el.removeEventListener("mouseenter", onMouseEnter);
         el.removeEventListener("mouseleave", onMouseLeave);

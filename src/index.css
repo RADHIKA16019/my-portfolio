@@ -71,6 +71,11 @@ body {
     flex-wrap: wrap !important;
   }
 
+  /* ensure hero content (clock/etc.) sits below the top-left brand on small screens */
+  .hero-row {
+    margin-top: 56px !important;
+  }
+
   .hero-brand {
     left: clamp(1.5rem, 4vw, 5rem) !important;
   }
