@@ -244,7 +244,7 @@ export const projects = [
     category: "React",
     tech: ["React", "Vite"],
     github: "https://github.com/RADHIKA16019/my-portfolio.git",
-    live: "",
+    live: "https://radhika16019-portfolio.vercel.app/",
     featured: false,
   },
   // {

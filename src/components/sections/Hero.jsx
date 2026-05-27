@@ -248,6 +248,14 @@ gap:"16px",
 >
 
 <button
+onClick={() => {
+  document
+    .getElementById("projects")
+    ?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+}} 
 style={{
 padding:"12px 24px",
 borderRadius:"12px",
