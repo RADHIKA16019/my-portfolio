@@ -15,6 +15,8 @@ const navItems = [
 function Sidebar({ isDark, toggleTheme }) {
   const [active, setActive] = useState("hero");
   const [tooltip, setTooltip] = useState(null);
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const observers = [];
@@ -30,6 +32,40 @@ function Sidebar({ isDark, toggleTheme }) {
     });
     return () => observers.forEach((o) => o.disconnect());
   }, []);
+
+  // Detect mobile (only in effect to avoid SSR issues)
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    if (mq.addEventListener) mq.addEventListener('change', onChange);
+    else mq.addListener(onChange);
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener('change', onChange);
+      else mq.removeListener(onChange);
+    };
+  }, []);
+
+  // Hide sidebar while scrolling on mobile, show again after a short pause
+  useEffect(() => {
+    if (!isMobile) {
+      setShowSidebar(true);
+      return;
+    }
+
+    let timer = null;
+    const onScroll = () => {
+      setShowSidebar(false);
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => setShowSidebar(true), 700);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (timer) clearTimeout(timer);
+    };
+  }, [isMobile]);
 
   const scrollTo = (id) => {
     const el = document.getElementById(id);
@@ -54,7 +90,10 @@ function Sidebar({ isDark, toggleTheme }) {
       background: sidebarBg,
       backdropFilter: "blur(16px)",
       borderRight: "1px solid " + sidebarBorder,
+      transform: isMobile && !showSidebar ? "translateX(-105%)" : "translateX(0)",
+      transition: "transform 0.28s ease",
     }}>
+      {/* Slide/hidden on mobile while scrolling */}
 
       <div style={{
         display: "flex",

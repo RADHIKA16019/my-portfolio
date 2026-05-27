@@ -75,6 +75,7 @@ function Hero({ isDark }) {
         display: "flex",
         alignItems: "center",
         gap: "8px",
+        zIndex: 20,
       }}>
         <div style={{
           width: "8px",
