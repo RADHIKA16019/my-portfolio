@@ -175,13 +175,44 @@ export const funFacts = [
 ];
 
 
-export const skills = {
-  languages: [ "C", "C++", "TypeScript", "JavaScript" ],
-  frontend:  [ "HTML", "CSS", "React", "Tailwind", "Next.js" ],
-  backend:   [ "Node.js", "Express", "MongoDB" ],
-  tools:     [ "Git", "GitHub", "VS Code" ],
-  learning:  [ "DSA" ],
-};
+export const skills = [
+  {
+    category: "Languages",
+    items: [
+      { name: "C", icon: "devicon-c-plain colored", level: "know" },
+      { name: "C++", icon: "devicon-cplusplus-plain colored", level: "know" },
+      { name: "JavaScript", icon: "devicon-javascript-plain colored", level: "know" },
+      { name: "TypeScript", icon: "devicon-typescript-plain colored", level: "know" },
+    ],
+  },
+  {
+    category: "Frontend",
+    items: [
+      { name: "HTML5", icon: "devicon-html5-plain colored", level: "know" },
+      { name: "CSS3", icon: "devicon-css3-plain colored", level: "know" },
+      { name: "React", icon: "devicon-react-original colored", level: "know" },
+      { name: "Next.js", icon: "devicon-nextjs-plain", level: "learning" },
+    ],
+  },
+  {
+    category: "Backend",
+    items: [
+      { name: "Node.js", icon: "devicon-nodejs-plain colored", level: "know" },
+      { name: "Express", icon: "devicon-express-original", level: "know" },
+      { name: "MongoDB", icon: "devicon-mongodb-plain colored", level: "know" },
+      { name: "Prisma", icon: "devicon-prisma-plain", level: "know" },
+      { name: "Drizzle", icon: "devicon-postgresql-plain colored", level: "know" },
+    ],
+  },
+  {
+    category: "Tools",
+    items: [
+      { name: "Git", icon: "devicon-git-plain colored", level: "know" },
+      { name: "GitHub", icon: "devicon-github-original", level: "know" },
+      { name: "VS Code", icon: "devicon-vscode-plain colored", level: "know" },
+    ],
+  },
+];
 
 export const projects = [
   {
