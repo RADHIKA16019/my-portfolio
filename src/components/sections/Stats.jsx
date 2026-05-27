@@ -109,10 +109,17 @@ function Stats({ isDark }) {
         color: "#00b4d8",
         marginBottom: "12px",
       }}>
-        By the numbers
+        05 — By the number
       </p>
 
-      <div style={{ width: "40px", height: "3px", background: "#00b4d8", borderRadius: "2px", marginBottom: "20px" }} />
+      <div style={{
+        width: "40px",
+        height: "3px",
+        background: "#00b4d8",
+        borderRadius: "2px",
+        marginBottom: "20px",
+      }} />
+
 
       <h2 style={{
         fontFamily: "Syne, sans-serif",

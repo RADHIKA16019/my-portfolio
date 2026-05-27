@@ -1,41 +1,42 @@
 import { useState } from "react";
 
 const clubs = [
-  { name: "NSS", fullName: "National Service Scheme", icon: "fa-solid fa-hands-helping", color: "#10b981" },
-  { name: "GDG", fullName: "Google Developer Group", icon: "fa-brands fa-google", color: "#4285f4" },
-  { name: "UCC", fullName: "UCC Club", icon: "fa-solid fa-users", color: "#f59e0b" },
+  { name: "NSS", fullName: "National Service Scheme", icon: "fa-solid fa-hands-holding-child", color: "#10b981" },
+  { name: "GDG", fullName: "Google Developer Group", icon: "fa-brands fa-google", color: "#cb5012" },
+  { name: "UCC & DA", fullName: "University Computer Center & Digital Affairs", icon: "fa-solid fa-users", color: "#0e9eeb" },
+  { name: "Vasundhara Eco Club", fullName: "Vasundhara Eco Club", icon: "fa-brands fa-pagelines", color: "#0eeb24" },
 ];
 
 const activities = [
   {
-    icon: "fa-solid fa-tea",
-    color: "#00b4d8",
-    bg: "rgba(0,180,216,0.08)",
-    border: "rgba(0,180,216,0.2)",
+    icon: "fa-solid fa-mug-saucer",
+    color: "#ef8b00b0",
+    bg: "rgba(242, 222, 1, 0.08)",
+    border: "rgba(216, 94, 18, 0.3)",
     title: "ChaiCode Ambassador",
     desc: "Representing ChaiCode at college — organizing events, spreading dev culture, and building community.",
     tag: "Ambassador",
   },
-  {
-    icon: "fa-solid fa-calendar-check",
-    color: "#8b5cf6",
-    bg: "rgba(139,92,246,0.08)",
-    border: "rgba(139,92,246,0.2)",
-    title: "Events Conducted",
-    count: "1+",
-    desc: "Organized technical workshops and college events. More in the pipeline.",
-    tag: "Events",
-  },
+  // {
+  //   icon: "fa-solid fa-calendar-check",
+  //   color: "#0fb4d5",
+  //   bg: "rgba(139,92,246,0.08)",
+  //   border: "rgba(77, 10, 232, 0.2)",
+  //   title: "Events Conducted",
+  //   count: "1+",
+  //   desc: "Organized technical workshops and college events. More in the pipeline.",
+  //   tag: "Events",
+  // },
   {
     icon: "fa-solid fa-pen-nib",
-    color: "#f59e0b",
+    color: "#0bf5c2",
     bg: "rgba(245,158,11,0.08)",
-    border: "rgba(245,158,11,0.2)",
+    border: "rgba(11, 239, 117, 0.3)",
     title: "Blogs Written",
-    count: "5+",
-    desc: "Technical blogs on web development — original thoughts, AI-assisted writing.",
+    // count: "50+",
+    desc: "Technical blogs on web development — original thoughts and learnings. Published on Hashnode.",
     tag: "Blogs",
-    link: "[YOUR_HASHNODE_LINK]",
+    link: "https://hashnode.com/dashboards",
   },
   {
     icon: "fa-brands fa-youtube",
@@ -43,10 +44,10 @@ const activities = [
     bg: "rgba(239,68,68,0.08)",
     border: "rgba(239,68,68,0.2)",
     title: "YouTube",
-    count: "1",
-    desc: "Published a Node.js tutorial. More content coming soon.",
+    // count: "1",
+    desc: "Published a Node.js Architecture tutorial. More content coming soon.",
     tag: "YouTube",
-    link: "[YOUR_YOUTUBE_LINK]",
+    link: "https://youtu.be/nVql7HieIYo?si=ELlFq9EaATP-zrAC",
   },
 ];
 
@@ -167,10 +168,10 @@ function Ambassador({ isDark }) {
         color: "#00b4d8",
         marginBottom: "12px",
       }}>
-        03 — Campus Life
+        04 — Campus Life
       </p>
 
-      <div style={{ width: "40px", height: "3px", background: "#00b4d8", borderRadius: "2px", marginBottom: "20px" }} />
+      <div style={{ width: "40px", height: "3px", background: "#00b4d8", borderRadius: "200px", marginBottom: "20px" }} />
 
       <h2 style={{
         fontFamily: "Syne, sans-serif",
@@ -265,7 +266,7 @@ function Ambassador({ isDark }) {
             ))}
 
             {/* Add more clubs note */}
-            <p style={{
+            {/* <p style={{
               fontFamily: "DM Sans, sans-serif",
               fontSize: "12px",
               color: isDark ? "#3f3f46" : "#d4d4d8",
@@ -273,7 +274,7 @@ function Ambassador({ isDark }) {
               fontStyle: "italic",
             }}>
               Replace clubs array in Ambassador.jsx with your actual clubs.
-            </p>
+            </p> */}
           </div>
         </div>
 

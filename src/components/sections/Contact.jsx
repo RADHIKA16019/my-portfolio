@@ -8,7 +8,7 @@ const socials = [
     key: "linkedin",
     color: "#0A66C2",
     bg: "rgba(10,102,194,0.10)",
-    border: "rgba(10,102,194,0.25)",
+    border: "rgba(10, 102, 194, 0.56)",
   },
   {
     label: "GitHub",
@@ -30,7 +30,7 @@ const socials = [
     label: "Instagram",
     icon: "fab fa-instagram",
     key: "instagram",
-    color: "#E1306C",
+    color: "#cc0c33",
     bg: "rgba(225,48,108,0.10)",
     border: "rgba(225,48,108,0.25)",
   },
@@ -44,7 +44,7 @@ const socials = [
   },
   {
     label: "Hashnode",
-    icon: "fab fa-hashnode",
+    icon: "fa-brands fa-hashnode",
     key: "hashnode",
     color: "#2962FF",
     bg: "rgba(41,98,255,0.10)",
@@ -152,12 +152,41 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" style={sectionStyle}>
+    <section id="contact" style={{minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      padding: "80px 5rem",
+      position: "relative",}}>
 
-      <p style={labelStyle}>06 — Contact</p>
+      <p style={{
+        fontFamily: "DM Sans, sans-serif",
+        fontSize: "12px",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#00b4d8",
+        marginBottom: "12px",
+      }}>
+        08 — Contact
+      </p>
 
-      <h2 style={headingStyle}>
-        Let's Connect
+      <div style={{
+        width: "40px",
+        height: "3px",
+        background: "#00b4d8",
+        borderRadius: "2px",
+        marginBottom: "20px",
+      }} />
+      
+      <h2 style={{
+        fontFamily: "Syne, sans-serif",
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: "800",
+        color: "#ffffff" | "#09090b",
+        marginBottom: "12px",
+        lineHeight: "1.1",
+      }}>
+        Let's <span style={{ color: "#00b4d8" }}>connect</span>
       </h2>
 
       <div style={iconsWrapperStyle}>
@@ -199,17 +228,7 @@ export default function Contact() {
           © {new Date().getFullYear()} Radhika. All rights reserved.
         </p>
 
-        <p style={madeWithStyle}>
-          Built with
-          <i
-            className="fas fa-heart"
-            style={{
-              color: "#E1306C",
-              fontSize: "11px",
-            }}
-          />
-          by Radhika
-        </p>
+        
       </div>
 
     </section>

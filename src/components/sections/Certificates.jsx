@@ -203,7 +203,12 @@ export default function Certificates() {
 
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
-    <section id="certificates" style={sectionStyle}>
+    <section id="certificates" style={{minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      padding: "80px 5rem",
+      position: "relative",}}>
 
       {/* Label */}
       <p style={{
@@ -214,7 +219,7 @@ export default function Certificates() {
         color: "#00b4d8",
         marginBottom: "12px",
       }}>
-        04 — Licenses & Certifications
+        06 — Licenses & Certifications
       </p>
 
       <div style={{
@@ -226,7 +231,16 @@ export default function Certificates() {
       }} />
 
       {/* Heading */}
-      <h2 style={headingStyle}>What I've earned</h2>
+      <h2 style={{
+        fontFamily: "Syne, sans-serif",
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: "800",
+        color: "#ffffff" | "#09090b",
+        marginBottom: "12px",
+        lineHeight: "1.1",
+      }}>
+        What I've <span style={{ color: "#00b4d8" }}>earned</span>
+      </h2>
 
       {/* Cards grid */}
       <div style={gridStyle}>

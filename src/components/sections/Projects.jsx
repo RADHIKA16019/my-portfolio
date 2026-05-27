@@ -214,12 +214,51 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" style={sectionStyle}>
+    <section id="projects" style={{
+    // ...sectionStyle,
+    position: "relative",
+    zIndex: 1,
+    overflow: "visible",
+    padding: "80px 5rem",
+    position: "relative",
+    minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+  }}>
 
-      <p style={labelStyle}>03 — Projects</p>
+      <p style={{
+        fontFamily: "DM Sans, sans-serif",
+        fontSize: "12px",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#00b4d8",
+        marginBottom: "12px",
+      }}>
+        03 — Projects
+      </p>
+
+      <div style={{
+        width: "40px",
+        height: "3px",
+        background: "#00b4d8",
+        borderRadius: "2px",
+        marginBottom: "20px",
+      }} />
 
       <div style={headingRowStyle}>
-        <h2 style={headingStyle}>Things I've built</h2>
+        <h2 style={{
+        fontFamily: "Syne, sans-serif",
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: "800",
+        color: "#ffffff" | "#09090b",
+        marginBottom: "12px",
+        lineHeight: "1.1",
+      }}>
+        Things I've <span style={{ color: "#00b4d8" }}>built</span>
+      </h2>
+        
+
         <a
           href="https://github.com/radhika"
           target="_blank"

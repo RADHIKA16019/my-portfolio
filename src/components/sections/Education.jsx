@@ -146,7 +146,7 @@ export default function Education() {
       padding: "4px 12px",
       borderRadius: "99px",
       background: isPursuing ? "rgba(0,180,216,0.10)" : "rgba(71,162,72,0.10)",
-      color: isPursuing ? "#00b4d8" : "#47A248",
+      color: isPursuing ? "#e2db13" : "#47A248",
       border: isPursuing
         ? "1px solid rgba(0,180,216,0.25)"
         : "1px solid rgba(71,162,72,0.25)",
@@ -163,10 +163,45 @@ export default function Education() {
   };
 
   return (
-    <section id="education" style={sectionStyle}>
+    <section id="education" style={{
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      padding: "80px 5rem",
+      position: "relative",
+    }}>
 
-      <p style={labelStyle}>04 — Education</p>
-      <h2 style={headingStyle}>My academic journey</h2>
+      {/* <p style={labelStyle}>04 — Education</p> */}
+      <p style={{
+        fontFamily: "DM Sans, sans-serif",
+        fontSize: "12px",
+        letterSpacing: "0.2em",
+        textTransform: "uppercase",
+        color: "#00b4d8",
+        marginBottom: "12px",
+      }}>
+        07 — Education
+      </p>
+
+      <div style={{
+        width: "40px",
+        height: "3px",
+        background: "#00b4d8",
+        borderRadius: "2px",
+        marginBottom: "20px",
+      }} />
+      
+      <h2 style={{
+        fontFamily: "Syne, sans-serif",
+        fontSize: "clamp(2rem, 4vw, 3rem)",
+        fontWeight: "800",
+        color: "#ffffff" | "#09090b",
+        marginBottom: "12px",
+        lineHeight: "1.1",
+      }}>
+        My academic <span style={{ color: "#00b4d8" }}>journey</span>
+      </h2>
 
       <div style={listStyle}>
         {education.map((edu) => {
@@ -214,7 +249,7 @@ export default function Education() {
                 <span style={statusBadge(edu.status)}>
                   <span style={{
                     width: "5px", height: "5px", borderRadius: "50%",
-                    background: isPursuing ? "#00b4d8" : "#47A248",
+                    background: isPursuing ? "#e2db13" : "#47A248",
                     boxShadow: isPursuing ? "0 0 5px #00b4d8" : "none",
                   }} />
                   {edu.status}

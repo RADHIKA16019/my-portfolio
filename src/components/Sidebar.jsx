@@ -4,6 +4,7 @@ const navItems = [
   { id: "hero",         icon: "fa-solid fa-house",          label: "Home" },
   { id: "about",        icon: "fa-solid fa-user",           label: "About" },
   { id: "skills",       icon: "fa-solid fa-code",           label: "Skills" },
+  { id: "projects",     icon: "fa-solid fa-briefcase",      label: "Projects" },
   { id: "ambassador",   icon: "fa-solid fa-star",           label: "Campus" },
   { id: "stats",        icon: "fa-solid fa-chart-bar",      label: "Stats" },
   { id: "certificates", icon: "fa-solid fa-award",          label: "Certificates" },
@@ -141,7 +142,7 @@ function Sidebar({ isDark, toggleTheme }) {
             transition: "all 0.2s ease",
           }}
         >
-          <i className={isDark ? "fa-solid fa-sun" : "fa-solid fa-moon"}></i>
+          <i className={isDark ? "fa-solid fa-moon" : "fa-regular fa-moon"}></i>
         </button>
       </div>
     </nav>
