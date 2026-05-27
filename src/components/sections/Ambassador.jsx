@@ -273,7 +273,7 @@ function Ambassador({ isDark }) {
         Beyond <span style={{ color: "#00b4d8" }}>Code</span>
       </h2>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", maxWidth: "960px" }}>
+      <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", maxWidth: "960px" }}>
 
         {/* Left — Activities */}
         <div>

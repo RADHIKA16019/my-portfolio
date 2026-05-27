@@ -48,6 +48,39 @@ body::before {
   transition: width 0.1s linear;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-left: 0 !important;
+  }
+
+  section {
+    padding-left: clamp(1rem, 4vw, 1.5rem) !important;
+    padding-right: clamp(1rem, 4vw, 1.5rem) !important;
+  }
+
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-row {
+    flex-wrap: wrap !important;
+  }
+
+  .hero-brand {
+    left: clamp(1.5rem, 4vw, 5rem) !important;
+  }
+
+  .hero-photo {
+    width: min(360px, 100%) !important;
+    height: auto !important;
+  }
+}
+
 /* ── Glassmorphism utility ── */
 .glass-card {
   background: rgba(255, 255, 255, 0.04);

@@ -242,7 +242,7 @@ export const projects = [
     title: "Portfolio",
     description: "Personal portfolio site built with React + Vite + Tailwind.",
     category: "React",
-    tech: ["React", "Vite"],
+    tech: ["React", "Vite", "Tailwind CSS"],
     github: "https://github.com/RADHIKA16019/my-portfolio.git",
     live: "https://radhika16019-portfolio.vercel.app/",
     featured: false,

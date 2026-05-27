@@ -440,7 +440,7 @@ export default function Certificates() {
               <span style={rowValueStyle}>{selected.issuer}</span>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 24px" }}>
+            <div className="responsive-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 24px" }}>
               <div style={rowStyle}>
                 <span style={rowLabelStyle}>Issue Date</span>
                 <span style={rowValueStyle}>{selected.issueDate}</span>

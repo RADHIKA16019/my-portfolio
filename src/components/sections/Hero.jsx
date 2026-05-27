@@ -68,7 +68,7 @@ function Hero({ isDark }) {
       }} />
 
       {/* Top left brand */}
-      <div style={{
+      <div className="hero-brand" style={{
         position: "absolute",
         top: "32px",
         left: "5rem",
@@ -97,16 +97,17 @@ function Hero({ isDark }) {
       </div>
 
       <div
-style={{
-position:"relative",
-zIndex:10,
-display:"flex",
-alignItems:"center",
-justifyContent:"space-between",
-gap:"80px",
-width:"100%",
-}}
->
+        className="hero-row"
+        style={{
+          position: "relative",
+          zIndex: 10,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "80px",
+          width: "100%",
+        }}
+      >
 
 {/* LEFT CONTENT */}
 <div style={{
@@ -290,35 +291,36 @@ Download Resume
 {/* RIGHT PHOTO */}
 <div
 style={{
-position:"relative",
-flexShrink:0,
+  position: "relative",
+  flexShrink: 0,
 }}
 >
 
 <div
 style={{
-position:"absolute",
-inset:"-30px",
-borderRadius:"40px",
-background:
-"radial-gradient(circle, rgba(0,180,216,.22), transparent)",
-filter:"blur(40px)",
+  position: "absolute",
+  inset: "-30px",
+  borderRadius: "40px",
+  background:
+    "radial-gradient(circle, rgba(0,180,216,.22), transparent)",
+  filter: "blur(40px)",
 }}
 />
 
 <img
-src="/images/profile.png"
-alt="Profile"
-style={{
-width:"360px",
-height:"450px",
-objectFit:"cover",
-borderRadius:"28px",
-border:"1px solid rgba(0,180,216,.18)",
-boxShadow:"0 24px 70px rgba(0,0,0,.35)",
-position:"relative",
-zIndex:1,
-}}
+  className="hero-photo"
+  src="/images/profile.png"
+  alt="Profile"
+  style={{
+    width: "360px",
+    height: "450px",
+    objectFit: "cover",
+    borderRadius: "28px",
+    border: "1px solid rgba(0,180,216,.18)",
+    boxShadow: "0 24px 70px rgba(0,0,0,.35)",
+    position: "relative",
+    zIndex: 1,
+  }}
 />
 
 </div>

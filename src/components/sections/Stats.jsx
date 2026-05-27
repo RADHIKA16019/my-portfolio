@@ -132,7 +132,7 @@ function Stats({ isDark }) {
         Progress <span style={{ color: "#00b4d8" }}>so far</span>
       </h2>
 
-      <div style={{
+      <div className="responsive-grid" style={{
         display: "grid",
         gridTemplateColumns: "repeat(4, 1fr)",
         gap: "20px",

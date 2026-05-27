@@ -40,7 +40,7 @@ function About({ isDark }) {
         A little about <span style={{ color: highlightColor }}>me</span>
       </h2>
 
-      <div style={{
+      <div className="responsive-grid" style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
         gap: "64px",
